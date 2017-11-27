@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+nav {
+  height: 60px;
+  padding: 0; 
+  background: linear-gradient(to left, #28a5f5, #1e87f0);
+}
+
+nav a {
+  padding: 0 20px;
+  font-size: 16px;
+  line-height: 60px;
+  color: #fff;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+nav a:hover {
+  color: #1e87f0;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+section {
+  padding: 30px 0;
+}
+
+.container  {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.tile {
+  position: relative;
+}
+
+.tile-image {
+    float:left;
+    position: relative;
+    width: 92%;
+    padding-bottom : 92%; /* = width for a 1:1 aspect ratio */
+    margin: 4%;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size: cover; /* you change this to "contain" if you don't want the images to be cropped */
+}
+
+.tile-overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  height: 92%;
+  width: 92%;
+  margin: 4%;
+  padding: 6%;
+  transition: all .5s;
+}
+
+.tile:hover .tile-overlay {
+  background-color: rgba(0,0,0,0.75);
+}
+
+.tile-overlay > * {
+  padding: 0;
+  margin: 0;
+}
+
+.final-price {
+  font-size: 28px;
+}
+
+.muted {
+  color: #aaa;
+}
+
+/* LOGIN  */
+
+.main {
+  height: 94vh;
+}
+
+.random {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+form * {
+  width: 100%;
+}
+
