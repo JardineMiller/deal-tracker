@@ -1,0 +1,52 @@
+
+
+<aside class="side-nav">
+  <ul>
+    <li><a href="/admin">Overview</a></li>
+    <li>Burgers
+      <ul>
+        <a href="/admin/burgers"><li>list all</li></a>
+        <a href="/admin/burgers/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Restaurants
+      <ul>
+        <a href="/admin/restaurants"><li>list all</li></a>
+        <a href="/admin/restaurants/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Deals
+      <ul>
+        <a href="/admin/deals"><li>list all</li></a>
+        <a href="/admin/deals/new"><li>create new</li></a>
+      </ul>
+    </li>
+  </ul>
+</aside>
+
+<main class="display">
+  <div class="row">
+    <div class="four columns">
+      <div class="info">
+        <h3>Burgers</h3>
+        <h6><%= Burger.count %></h6>
+        <a href="/admin/burgers" class="button button-primary">View</a>
+      </div>
+    </div>
+    <div class="four columns">
+      <div class="info">
+        <h3>Restaurants</h3>
+        <h6><%= Restaurant.count %></h6>
+        <a href="/admin/restaurants" class="button button-primary">View</a>
+      </div>
+    </div>
+    <div class="four columns">
+      <div class="info">
+        <h3>Deals</h3>
+        <h6><%= Deal.count %></h6>
+        <a href="/admin/deals" class="button button-primary">View</a>
+      </div>
+    </div>
+  </div>
+</main>
+

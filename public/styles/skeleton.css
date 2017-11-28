@@ -28,6 +28,9 @@
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.small {
+  max-width: 720px !important;
+}
 .container {
   position: relative;
   width: 100%;
@@ -42,14 +45,14 @@
   box-sizing: border-box; }
 
 /* For devices larger than 400px */
-@media (min-width: 400px) {
+@media (min-width: 520px) {
   .container {
     width: 85%;
     padding: 0; }
 }
 
 /* For devices larger than 550px */
-@media (min-width: 550px) {
+@media (min-width: 700px) {
   .container {
     width: 80%; }
   .column,
@@ -76,7 +79,7 @@
   .one-third.column               { width: 33.3333333333%; }
   .two-thirds.column              { width: 65.3333333333%; }
 
-  .one-half.column                { width: 48%; }
+  .one-half.column                { width: 50%; }
 
   /* Offsets */
   .offset-by-one.column,
@@ -159,7 +162,8 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #1EAEDB;
+  transition: all .3s; }
 a:hover {
   color: #0FA0CE; }
 
@@ -208,7 +212,8 @@ input[type="reset"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
   background-color: #33C3F0;
-  border-color: #33C3F0; }
+  border-color: #33C3F0;
+  transition: all .3s; }
 .button.button-primary:hover,
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,

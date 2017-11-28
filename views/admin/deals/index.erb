@@ -1,0 +1,50 @@
+
+
+<aside class="side-nav">
+  <ul>
+    <li><a href="/admin">Overview</a></li>
+    <li>Burgers
+      <ul>
+        <a href="/admin/burgers"><li>list all</li></a>
+        <a href="/admin/burgers/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Restaurants
+      <ul>
+        <a href="/admin/restaurants"><li>list all</li></a>
+        <a href="/admin/restaurants/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Deals
+      <ul>
+        <a href="/admin/deals"><li>list all</li></a>
+        <a href="/admin/deals/new"><li>create new</li></a>
+      </ul>
+    </li>
+  </ul>
+</aside>
+
+<main class="display">
+  <div class="row">
+    <div class="twelve columns">
+      <table class="u-full-width">
+        <tr>
+          <th>Deal Name</th>
+          <th>Restaurant Name</th>
+          <th>Day</th>
+          <th></th>
+        </tr>
+        <% @deals.each do |deal| %>
+        <tr>
+          <td><a href="/admin/deal/<%= deal.id %>"><%= deal.name %></a></td>
+          <td><%= deal.burger.restaurant.name %></td>
+          <td><%= deal.day.capitalize %></td>
+          <td><a href="/admin/deals/<%= deal.id %>/edit" class="button button-primary">Edit</a>
+
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</main>
+

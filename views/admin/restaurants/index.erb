@@ -1,0 +1,57 @@
+
+
+<aside class="side-nav">
+  <ul>
+    <li><a href="/admin">Overview</a></li>
+    <li>Burgers
+      <ul>
+        <a href="/admin/burgers"><li>list all</li></a>
+        <a href="/admin/burgers/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Restaurants
+      <ul>
+        <a href="/admin/restaurants"><li>list all</li></a>
+        <a href="/admin/restaurants/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Deals
+      <ul>
+        <a href="/admin/deals"><li>list all</li></a>
+        <a href="/admin/deals/new"><li>create new</li></a>
+      </ul>
+    </li>
+  </ul>
+</aside>
+
+<main class="display">
+  <div class="row">
+    <div class="twelve columns">
+      <table class="u-full-width">
+        <tr>
+          <th>Restaurant Name</th>
+          <th>Telephone</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Logo</th>
+          <th>Distance</th>
+          <th>Bio</th>
+          <th></th>
+        </tr>
+        <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><a href="/admin/restaurant/<%= restaurant.id %>"><%= restaurant.name %></a></td>
+          <td><%= restaurant.tel %></td>
+          <td><%= restaurant.email %></td>
+          <td><%= restaurant.address %></td>
+          <td><%= restaurant.logo_url %></td>
+          <td><%= restaurant.distance %></td>
+          <td><%= restaurant.bio %></td>
+          <td><a href="/admin/restaurants/<%= restaurant.id %>/edit" class="button button-primary">Edit</a></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</main>
+

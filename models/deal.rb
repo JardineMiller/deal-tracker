@@ -73,7 +73,8 @@ class Deal
     INNER JOIN burgers
     ON deals.burger_id = burgers.id
     INNER JOIN restaurants
-    ON deals.restaurant_id = restaurants.id
+    ON burgers.restaurant_id = restaurants.id
+    ORDER BY deals.id
     "
     result = SqlRunner.run(sql)
     return result.map { |deal| Deal.new(deal) }
@@ -91,8 +92,12 @@ class Deal
     return result.map { |deal| Deal.new(deal) }
   end
 
+  def self.count
+    return self.distinct_all.count
+  end
+
   # ===============================================================
-  # ========================== BURGER =============================
+  # =========================== INFO ==============================
   
   def burger
     sql = "

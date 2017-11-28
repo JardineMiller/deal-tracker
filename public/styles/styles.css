@@ -2,10 +2,32 @@
   box-sizing: border-box;
 }
 
+.button-danger {
+  background-color: #ff5722;
+  border-color: #ff5722;
+  color: #fff;
+  transition: all .3s;
+}
+
+.button-danger:hover {
+  background-color: #f44336;
+  border-color: #f44336;
+  color: #fff;
+}
+
+body {
+  margin-top: 60px;
+}
+
 nav {
   height: 60px;
   padding: 0; 
   background: linear-gradient(to left, #28a5f5, #1e87f0);
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+  z-index: 2;
 }
 
 nav a {
@@ -66,12 +88,35 @@ section {
   margin: 0;
 }
 
+.tile-overlay h4, 
+.tile-overlay h5 {
+  font-weight: 300;
+}
+
+.tile-overlay h4 {
+  margin-bottom: 5px;
+  font-size: 24px;
+}
+
+.tile-overlay h5 {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.final-price,
+.muted {
+  position: absolute;
+  bottom: 0;
+}
+
 .final-price {
   font-size: 28px;
+  bottom: 20px;
 }
 
 .muted {
   color: #aaa;
+  bottom: 60px;
 }
 
 /* LOGIN  */
@@ -96,3 +141,106 @@ form * {
   width: 100%;
 }
 
+/* ADMIN */
+
+.side-nav * {
+  list-style: none;
+}
+
+.side-nav ul {
+  padding: 0;
+}
+
+.side-nav a {
+  position: relative;
+  color: #28a5f5;
+  text-decoration: none;
+  transition: all .3s;
+}
+
+.side-nav a:hover {
+  color: #00D0ED;
+  left: 5px;
+}
+
+.side-nav ul li ul {
+  margin-right: 30px;
+}
+
+.side-nav {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  display: inline-block;
+  height: 100vh;
+  float: left;
+  position: fixed;
+}
+
+.display {
+  margin-left: 170px;
+  padding: 20px 20px 0 20px;
+  background: #e2e1e0;
+  min-height: 100vh;
+}
+
+.info {
+  background: #fff;
+  text-align: center;
+  /*border: 1px solid #aaa;*/
+  border-radius: 3px;
+  padding: 50px 0;
+  margin: 5%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.info h6 {
+  font-size: 72px;
+}
+
+table th {
+  text-align: center;
+  border: 1px solid #999;
+  background-color: #555;
+  color: #fff;
+  font-weight: 400;
+  padding: 5px 20px !important;
+  font-size: 14px;
+}
+
+table .button {
+  margin-bottom: 0 !important;
+}
+
+table th:last-child,
+table td:last-child {
+  width: 100px !important;
+}
+
+table tr:nth-child(odd) {
+  background-color: #efefef;
+}
+
+table td {
+  font-size: 13px;
+  padding: 5px 10px !important;
+}
+
+table tr:hover {
+  background: rgba(30, 120, 200, 0.2);
+}
+
+table {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+textarea {
+  height: auto;
+}
+
+.form-group {
+  padding: 0 5px;
+}

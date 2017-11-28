@@ -1,0 +1,102 @@
+
+
+<aside class="side-nav">
+  <ul>
+    <li><a href="/admin">Overview</a></li>
+    <li>Burgers
+      <ul>
+        <a href="/admin/burgers"><li>list all</li></a>
+        <a href="/admin/burgers/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Restaurants
+      <ul>
+        <a href="/admin/restaurants"><li>list all</li></a>
+        <a href="/admin/restaurants/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Deals
+      <ul>
+        <a href="/admin/deals"><li>list all</li></a>
+        <a href="/admin/deals/new"><li>create new</li></a>
+      </ul>
+    </li>
+  </ul>
+</aside>
+
+<main class="display"> 
+  <div class="container small">
+    <form class="offset-by-three" method="post" action="/admin/burgers">
+      <div class="row">
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="restaurant_select">Restaurant Name</label>
+            <select id="restaurant_select" name="restaurant_id">
+              <% @restaurants.each do |restaurant| %>
+              <option value ="<%= restaurant.id %>" >
+                <%= restaurant.name %>
+              </option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="burger_name">Burger Name</label>
+            <input type="text" name="name" id="burger_name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="form-group">
+            <label for="burger_type_select">Type</label>
+            <select id="burger_type_select" name="type">
+              <% @burgers.each do |burger| %>
+              <option value ="<%= burger.type %>" >
+                <%= burger.type.capitalize %>
+              </option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="form-group">
+            <label for="burger_price">Price</label>
+            <input min=0 step="0.01" type="number" name="price" id="burger_price">
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="form-group">
+            <label for="file_name">File name</label>
+            <input type="text" name="photo_url" id="file_name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <div class="form-group">
+            <label for="burger_description">Description</label>
+            <textarea rows="10" id=" burger_description" name="description"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="three columns offset-by-three">
+          <div class="form-group">
+            <input type="submit" name="submit" value="Submit" class="button button-primary">
+          </div>
+        </div>
+        <div class="three columns">
+          <div class="form-group">
+            <a class="button" href="/admin/burgers">Cancel</a>
+          </div>
+        </div>
+      </div>
+      
+
+    </form> 
+  </div>
+</main>
+

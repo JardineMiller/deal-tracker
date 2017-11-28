@@ -70,10 +70,14 @@ class Restaurant
 
   def self.all
     sql = "
-    SELECT * FROM restaurants
+    SELECT * FROM restaurants ORDER BY id
     "
     result = SqlRunner.run(sql)
     return result.map { |restaurant| Restaurant.new(restaurant) }
+  end
+
+  def self.count
+    return self.all.count
   end
 
   # =============================================================

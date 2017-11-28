@@ -1,5 +1,5 @@
 class Burger
-  attr_reader :id, :name, :type, :photo_url, :description, :price
+  attr_reader :id, :name, :type, :photo_url, :description, :price, :restaurant_id
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -41,10 +41,10 @@ class Burger
     sql = "
     UPDATE burgers
     SET (restaurant_id, name, type, price, photo_url, description) =
-    ($1, $2, $3, $4, $5)
-    WHERE id = $6
+    ($1, $2, $3, $4, $5, $6)
+    WHERE id = $7
     " 
-    values = [@restaurant_id, @name, @type, @price, @photo_url, @description]
+    values = [@restaurant_id, @name, @type, @price, @photo_url, @description, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -69,7 +69,7 @@ class Burger
 
   def self.all
     sql = "
-    SELECT * FROM burgers
+    SELECT * FROM burgers ORDER BY id
     "
     result = SqlRunner.run(sql)
     return result.map { |burger| Burger.new(burger) }
@@ -82,6 +82,18 @@ class Burger
     "
     values = [type]
     result = SqlRunner.run(sql, values)
+    return result.map { |burger| Burger.new(burger) }
+  end
+
+  def self.count
+    return self.all.count
+  end
+
+  def self.all_types
+    sql = "
+    SELECT DISTINCT ON (burgers.type) * FROM burgers
+    "
+    result = SqlRunner.run(sql)
     return result.map { |burger| Burger.new(burger) }
   end
 
