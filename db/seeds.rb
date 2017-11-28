@@ -1,8 +1,10 @@
 require('pry-byebug')
 require_relative('../db/sqlrunner.rb')
+
 require_relative('../models/burger.rb')
-require_relative('../models/deal.rb')
 require_relative('../models/restaurant.rb')
+require_relative('../models/discount.rb')
+require_relative('../models/deal.rb')
 
 @restaurant = Restaurant.new({
   "name" => "Brgr",
@@ -147,94 +149,155 @@ require_relative('../models/restaurant.rb')
 @burger8.save
 @burger9.save
 
+@discount = Discount.new({
+  "name" => "5% Off",
+  "multiplier" => 0.95
+})
+
+@discount2 = Discount.new({
+  "name" => "10% Off",
+  "multiplier" => 0.90
+})
+
+@discount3 = Discount.new({
+  "name" => "15% Off",
+  "multiplier" => 0.85
+})
+
+@discount4 = Discount.new({
+  "name" => "20% Off",
+  "multiplier" => 0.80
+})
+
+@discount5 = Discount.new({
+  "name" => "25% Off",
+  "multiplier" => 0.75
+})
+
+@discount6 = Discount.new({
+  "name" => "30% Off",
+  "multiplier" => 0.70
+})
+
+@discount7 = Discount.new({
+  "name" => "35% Off",
+  "multiplier" => 0.65
+})
+
+@discount8 = Discount.new({
+  "name" => "40% Off",
+  "multiplier" => 0.60
+})
+
+@discount9 = Discount.new({
+  "name" => "45% Off",
+  "multiplier" => 0.55
+})
+
+@discount10 = Discount.new({
+  "name" => "Two For One",
+  "multiplier" => 0.50
+})
+
+@discount.save
+@discount2.save
+@discount3.save
+@discount4.save
+@discount5.save
+@discount6.save
+@discount7.save
+@discount8.save
+@discount9.save
+@discount10.save
+
 @deal = Deal.new({
-  "burger_id" => @burger.id,
   "name" => "Two For One Tuesdays",
-  "discount" => 0.50,
+  "burger_id" => @burger.id,
+  "discount_id" => @discount10.id,
   "day" => :tue
 })
 
 @deal2 = Deal.new({
   "burger_id" => @burger2.id,
   "name" => "Two For One Tuesdays",
-  "discount" => 0.50,
+  "discount_id" => @discount10.id,
   "day" => :tue
 })
 
 @deal3 = Deal.new({
   "burger_id" => @burger3.id,
   "name" => "Two For One Tuesdays",
-  "discount" => 0.50,
+  "discount_id" => @discount10.id,
   "day" => :tue
 })
 
 @deal4 = Deal.new({
   "burger_id" => @burger4.id,
   "name" => "30% Off",
-  "discount" => 0.70,
+  "discount_id" => @discount6.id,
   "day" => :wed
 })
 
 @deal5 = Deal.new({
   "burger_id" => @burger5.id,
   "name" => "30% Off",
-  "discount" => 0.70,
+  "discount_id" => @discount6.id,
   "day" => :wed
 })
 
 @deal6 = Deal.new({
   "burger_id" => @burger.id,
   "name" => "30% Off",
-  "discount" => 0.70,
+  "discount_id" => @discount6.id,
   "day" => :thu
 })
 
 @deal7 = Deal.new({
   "burger_id" => @burger2.id,
   "name" => "30% Off",
-  "discount" => 0.70,
+  "discount_id" => @discount6.id,
   "day" => :thu
 })
 
 @deal8 = Deal.new({
   "burger_id" => @burger3.id,
   "name" => "30% Off",
-  "discount" => 0.70,
+  "discount_id" => @discount6.id,
   "day" => :thu
 })
 
 @deal9 = Deal.new({
   "burger_id" => @burger4.id,
   "name" => "30% Off",
-  "discount" => 0.70,
+  "discount_id" => @discount6.id,
   "day" => :tue
 })
 
 @deal10 = Deal.new({
   "burger_id" => @burger5.id,
   "name" => "30% Off",
-  "discount" => 0.70,
+  "discount_id" => @discount6.id,
   "day" => :tue
 })
 
 @deal11 = Deal.new({
   "burger_id" => @burger7.id,
   "name" => "Mental Mondays",
-  "discount" => 0.60,
+  "discount_id" => @discount8.id,
   "day" => :mon
 })
 
 @deal12 = Deal.new({
   "burger_id" => @burger8.id,
   "name" => "Mental Mondays",
-  "discount" => 0.60,
+  "discount_id" => @discount8.id,
   "day" => :mon
 })
 
 @deal13 = Deal.new({
   "burger_id" => @burger9.id,
   "name" => "Mental Mondays",
-  "discount" => 0.60,
+  "discount_id" => @discount8.id,
   "day" => :mon
 })
 

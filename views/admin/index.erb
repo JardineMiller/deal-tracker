@@ -15,6 +15,12 @@
         <a href="/admin/restaurants/new"><li>create new</li></a>
       </ul>
     </li>
+    <li>Discounts
+      <ul>
+        <a href="/admin/discounts"><li>list all</li></a>
+        <a href="/admin/discounts/new"><li>create new</li></a>
+      </ul>
+    </li>
     <li>Deals
       <ul>
         <a href="/admin/deals"><li>list all</li></a>
@@ -26,24 +32,31 @@
 
 <main class="display">
   <div class="row">
-    <div class="four columns">
+    <div class="three columns">
       <div class="info">
         <h3>Burgers</h3>
         <h6><%= Burger.count %></h6>
         <a href="/admin/burgers" class="button button-primary">View</a>
       </div>
     </div>
-    <div class="four columns">
+    <div class="three columns">
       <div class="info">
         <h3>Restaurants</h3>
         <h6><%= Restaurant.count %></h6>
         <a href="/admin/restaurants" class="button button-primary">View</a>
       </div>
     </div>
-    <div class="four columns">
+    <div class="three columns">
+      <div class="info">
+        <h3>Discounts</h3>
+        <h6><%= Discount.count %></h6>
+        <a href="/admin/discounts" class="button button-primary">View</a>
+      </div>
+    </div>
+    <div class="three columns">
       <div class="info">
         <h3>Deals</h3>
-        <h6><%= Deal.count %></h6>
+        <h6><%= Deal.distinct_count %></h6>
         <a href="/admin/deals" class="button button-primary">View</a>
       </div>
     </div>

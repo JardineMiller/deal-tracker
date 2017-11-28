@@ -1,3 +1,5 @@
+require_relative('../db/sqlrunner.rb')
+
 class Restaurant
   attr_reader :id, :name, :tel, :email, :address, :logo_url, :bio, :distance
   

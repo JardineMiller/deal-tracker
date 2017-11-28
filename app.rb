@@ -10,6 +10,7 @@ require_relative('controllers/admin_controller.rb')
 require_relative('models/burger.rb')
 require_relative('models/deal.rb')
 require_relative('models/restaurant.rb')
+require_relative('models/discount.rb')
 
 get '/' do
   @deals = Deal.distinct_all

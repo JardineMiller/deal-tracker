@@ -15,6 +15,12 @@
         <a href="/admin/restaurants/new"><li>create new</li></a>
       </ul>
     </li>
+    <li>Discounts
+      <ul>
+        <a href="/admin/discounts"><li>list all</li></a>
+        <a href="/admin/discounts/new"><li>create new</li></a>
+      </ul>
+    </li>
     <li>Deals
       <ul>
         <a href="/admin/deals"><li>list all</li></a>
@@ -45,7 +51,7 @@
         <div class="four columns">
           <div class="form-group">
             <label for="logo">Logo</label>
-            <input type="text" name="logo_url" id="logo" value="<%= @restaurant.logo_url %>">
+            <input type="file" name="logo_url" id="logo" value="<%= @restaurant.logo_url %>">
           </div>
         </div>
       </div>
@@ -87,7 +93,7 @@
             </div>
             <div class="three columns">
               <div class="form-group">
-                <a class="button" href="/admin/burgers">Cancel</a>
+                <a class="button" href="/admin/restaurants">Cancel</a>
               </div>
             </div>
           </form> 

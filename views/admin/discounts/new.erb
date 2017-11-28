@@ -1,0 +1,71 @@
+
+
+<aside class="side-nav">
+  <ul>
+    <li><a href="/admin">Overview</a></li>
+    <li>Burgers
+      <ul>
+        <a href="/admin/burgers"><li>list all</li></a>
+        <a href="/admin/burgers/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Restaurants
+      <ul>
+        <a href="/admin/restaurants"><li>list all</li></a>
+        <a href="/admin/restaurants/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Discounts
+      <ul>
+        <a href="/admin/discounts"><li>list all</li></a>
+        <a href="/admin/discounts/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Deals
+      <ul>
+        <a href="/admin/deals"><li>list all</li></a>
+        <a href="/admin/deals/new"><li>create new</li></a>
+      </ul>
+    </li>
+  </ul>
+</aside>
+
+<main class="display"> 
+  <div class="container small">
+    <h3>Create Discount</h3>
+    <form class="offset-by-three" method="post" action="/admin/discounts">
+
+      <div class="row">
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="restaurant_select">Discount Name</label>
+            <input type="text" name="name" id="name">
+          </div>
+        </div>
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="discount_multiplier">Discount Multiplier</label>
+            <input type="number" step="0.01" min=0 name="multipler" id="discount_multiplier">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="three columns offset-by-three">
+          <div class="form-group">
+            <input type="submit" name="submit" value="Submit" class="button button-primary">
+          </div>
+        </div>
+        <div class="three columns">
+          <div class="form-group">
+            <a class="button" href="/admin/burgers">Cancel</a>
+          </div>
+        </div>
+      </div>
+      
+
+    </form> 
+  </div>
+</main>
+

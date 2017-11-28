@@ -88,6 +88,19 @@ get '/admin/deals' do #DEALS - INDEX
 end
 
 get '/admin/deals/new' do #DEALS - NEW
+  @discounts = Discount.all
+  @burgers = Burger.all
   erb (:"/admin/deals/new")
+end
+
+
+
+get '/admin/discounts' do #DISCOUNTS - INDEX
+  @discounts = Discount.all
+  erb (:"/admin/discounts/index")
+end
+
+get '/admin/discounts/new' do #DISCOUNTS - NEW
+  erb (:"/admin/discounts/new")
 end
 
