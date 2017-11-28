@@ -26,65 +26,60 @@
 
 <main class="display"> 
   <div class="container small">
-    <h3>Edit Burger</h3>
-    <form class="offset-by-three" method="post" action="/admin/burgers/<%= @burger.id %>">
+    <h3>Edit Restaurant</h3>
+    <form class="offset-by-three" method="post" action="/admin/restaurants/<%= @restaurant.id %>">
       <input type="hidden" name="_method" value="put">
       <div class="row">
-        <div class="one-half column">
+        <div class="four columns">
           <div class="form-group">
-            <label for="restaurant_select">Restaurant Name</label>
-            <select id="restaurant_select" name="restaurant_id">
-              <% @restaurants.each do |restaurant| %>
-              <option value ="<%= restaurant.id %>" <%= "selected" if @burger.restaurant_id == restaurant.id %> >
-                <%= restaurant.name %>
-              </option>
-              <% end %>
-            </select>
+            <label for="restaurant_name">Restaurant Name</label>
+            <input type="text" name="name" id="restaurant_name" value="<%= @restaurant.name %>">
           </div>
         </div>
-        <div class="one-half column">
+        <div class="four columns">
           <div class="form-group">
-            <label for="burger_name">Burger Name</label>
-            <input type="text" name="name" id="burger_name" value="<%= @burger.name%>">
+            <label for="tel">Telephone</label>
+            <input type="text" name="tel" id="tel" value="<%= @restaurant.tel %>">
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="form-group">
+            <label for="logo">Logo</label>
+            <input type="text" name="logo_url" id="logo" value="<%= @restaurant.logo_url %>">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="four columns">
           <div class="form-group">
-            <label for="burger_type_select">Type</label>
-            <select id="burger_type_select" name="type">
-              <% @burgers.each do |burger| %>
-              <option value ="<%= burger.type %>" <%= "selected" if @burger.type == burger.type %> >
-                <%= burger.type.capitalize %>
-              </option>
-              <% end %>
-            </select>
+            <label for="email">Email</label>
+            <input type="email" name="email" value="<%= @restaurant.email %>">
           </div>
         </div>
         <div class="four columns">
           <div class="form-group">
-            <label for="burger_price">Price</label>
-            <input min=0 step="0.01" type="number" name="price" id="burger_price" value="<%= @burger.price%>">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" value="<%= @restaurant.address %>">
           </div>
         </div>
         <div class="four columns">
           <div class="form-group">
-            <label for="file_name">File name</label>
-            <input type="text" name="photo_url" id="file_name" value="<%= @burger.photo_url%>">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns">
-          <div class="form-group">
-            <label for="burger_description">Description</label>
-            <textarea rows="10" id=" burger_description" name="description"><%= @burger.description%></textarea>
+            <label for="distance">Distance</label>
+            <input type="number" name="distance" id="distance" value="<%= @restaurant.distance %>">
           </div>
         </div>
       </div>
 
-        <div class="row">
+      <div class="row">
+        <div class="twelve columns">
+          <div class="form-group">
+            <label for="burger_description">Description</label>
+            <textarea rows="10" id=" burger_description" name="bio"><%= @restaurant.bio %></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
             <div class="three columns offset-by-two">
               <div class="form-group">
                 <input type="submit" name="submit" value="Submit" class="button button-primary">
@@ -98,13 +93,13 @@
           </form> 
           <div class="three columns">
             <div class="form-group">
-              <form method="post" action="/admin/burgers/<%= @burger.id %>">
+              <form method="post" action="/admin/restaurants/<%= @restaurant.id %>">
                 <input type="hidden" name="_method" value="delete">
                 <button class="button button-danger">Delete</button>
               </form>
             </div>
-          </div>
-    </div>
+        </div>
+      </div>
   </div>
 </main>
 

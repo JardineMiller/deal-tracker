@@ -1,0 +1,98 @@
+
+
+<aside class="side-nav">
+  <ul>
+    <li><a href="/admin">Overview</a></li>
+    <li>Burgers
+      <ul>
+        <a href="/admin/burgers"><li>list all</li></a>
+        <a href="/admin/burgers/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Restaurants
+      <ul>
+        <a href="/admin/restaurants"><li>list all</li></a>
+        <a href="/admin/restaurants/new"><li>create new</li></a>
+      </ul>
+    </li>
+    <li>Deals
+      <ul>
+        <a href="/admin/deals"><li>list all</li></a>
+        <a href="/admin/deals/new"><li>create new</li></a>
+      </ul>
+    </li>
+  </ul>
+</aside>
+
+<main class="display"> 
+  <div class="container small">
+    <h3>Create Restaurant</h3>
+    <form class="offset-by-three" method="post" action="/admin/restaurants">
+      <div class="row">
+        <div class="four columns">
+          <div class="form-group">
+            <label for="restaurant_name">Restaurant Name</label>
+            <input type="text" name="name" id="restaurant_name">
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="form-group">
+            <label for="tel">Telephone</label>
+            <input type="text" name="tel" id="tel">
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="form-group">
+            <label for="logo">Logo</label>
+            <input type="text" name="logo_url" id="logo">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email">
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address">
+          </div>
+        </div>
+        <div class="four columns">
+          <div class="form-group">
+            <label for="distance">Distance</label>
+            <input type="number" name="distance" id="distance">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <div class="form-group">
+            <label for="burger_description">Description</label>
+            <textarea rows="10" id=" burger_description" name="description"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="three columns offset-by-three">
+          <div class="form-group">
+            <input type="submit" name="submit" value="Submit" class="button button-primary">
+          </div>
+        </div>
+        <div class="three columns">
+          <div class="form-group">
+            <a class="button" href="/admin/restaurants">Cancel</a>
+          </div>
+        </div>
+      </div>
+      
+
+    </form> 
+  </div>
+</main>
+
