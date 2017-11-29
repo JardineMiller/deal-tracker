@@ -1,11 +1,12 @@
 require_relative('../db/sqlrunner.rb')
 
 class Discount
-  attr_reader :id, :name, :multiplier
+  attr_reader :id, :name, :type, :multiplier
   
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @name = options["name"]
+    @type = options["type"]
     @multiplier = options["multiplier"].to_f
   end
 
@@ -15,12 +16,12 @@ class Discount
   def save
     sql = "
     INSERT INTO discounts
-    (name, multiplier)
+    (name, multiplier, type)
     VALUES
-    ($1, $2)
+    ($1, $2, $3)
     RETURNING id
     "
-    values = [@name, @multiplier]
+    values = [@name, @multiplier, @type]
     discount = SqlRunner.run(sql, values).first
     @id = discount["id"].to_i
   end
@@ -38,11 +39,11 @@ class Discount
   def update
     sql = "
     UPDATE discounts
-    SET (name, multiplier) =
-    ($1, $2)
-    WHERE id = $3
+    SET (name, multiplier, type) =
+    ($1, $2, $3)
+    WHERE id = $4
     "
-    values = [@name, @multiplier, @id]
+    values = [@name, @multiplier, @type, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -75,6 +76,14 @@ class Discount
 
   def self.count
     return self.all.count
+  end
+
+  def self.types
+    sql = "
+    SELECT DISTINCT ON (type) * FROM discounts
+    "
+    result = SqlRunner.run(sql)
+    return result.map { |discount| Discount.new(discount) }
   end
 
 end

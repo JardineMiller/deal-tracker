@@ -97,6 +97,14 @@ class Deal
     return self.distinct_all.count
   end
 
+  def self.days
+    sql = "
+    SELECT DISTINCT ON (day) deals.day FROM deals
+    "
+    result = SqlRunner.run(sql)
+    return result.map { |each| each["day"] }
+  end
+
   # ===============================================================
   # =========================== INFO ==============================
   
@@ -153,7 +161,8 @@ class Deal
   end
 
   def final_price
-    return sprintf('%.2f',(self.burger.price * self.discount.multiplier))
+    return sprintf('%.2f',(self.burger.price * self.discount.multiplier)) if self.discount.type == "percentage"
+    return sprintf('%.2f',(self.burger.price - self.discount.multiplier)) if self.discount.type == "deduction"
   end
 
 end

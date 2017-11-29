@@ -30,6 +30,7 @@ CREATE TABLE burgers (
 CREATE TABLE discounts (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
+  type VARCHAR(255),
   multiplier FLOAT(2)
 );
 

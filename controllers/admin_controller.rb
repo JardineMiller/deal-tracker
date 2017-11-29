@@ -93,6 +93,32 @@ get '/admin/deals/new' do #DEALS - NEW
   erb (:"/admin/deals/new")
 end
 
+post '/admin/deals' do #DEALS - CREATE
+  @deal = Deal.new(params)
+  @deal.save
+  redirect to '/admin/deals'
+end
+
+get '/admin/deals/:id/edit' do #DEALS - EDIT
+  @deal = Deal.find(params[:id])
+  @deals = Deal.distinct_all
+  @discounts = Discount.all
+  @burgers = Burger.all
+  @days = Deal.days
+  erb (:"/admin/deals/edit")
+end
+
+put '/admin/deals/:id' do #RESTAURANT - UPDATE
+  Deal.new(params).update
+  redirect to '/admin/deals'
+end
+
+delete '/admin/deals/:id' do #RESTAURANT - DELETE
+  deal = Deal.find(params[:id])
+  deal.delete
+  redirect to '/admin/deals'
+end
+
 
 
 get '/admin/discounts' do #DISCOUNTS - INDEX
@@ -101,6 +127,29 @@ get '/admin/discounts' do #DISCOUNTS - INDEX
 end
 
 get '/admin/discounts/new' do #DISCOUNTS - NEW
+  @discounts = Discount.types
   erb (:"/admin/discounts/new")
+end
+
+post '/admin/discounts' do #DISCOUNTS - CREATE
+  @discount = Discount.new(params)
+  @discount.save
+  redirect to '/admin/discounts'
+end
+
+get '/admin/discounts/:id/edit' do #DISCOUNTS - EDIT
+  @discount = Discount.find(params[:id])
+  erb (:"/admin/discounts/edit")
+end
+
+put '/admin/discounts/:id' do #DISCOUNTS - UPDATE
+  Discount.new(params).update
+  redirect to '/admin/discounts'
+end
+
+delete '/admin/discounts/:id' do #DISCOUNTS - DELETE
+  discount = Discount.find(params[:id])
+  discount.delete
+  redirect to '/admin/discounts'
 end
 

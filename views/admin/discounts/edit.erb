@@ -27,3 +27,58 @@
     </li>
   </ul>
 </aside>
+
+<main class="display"> 
+  <div class="container small">
+    <h3>Edit Deal</h3>
+    <form class="offset-by-three" method="post" action="/admin/discounts/<%= @discount.id %>">
+      <input type="hidden" name="_method" value="put">
+
+      <div class="row">
+        <div class="one-third column">
+          <div class="form-group">
+            <label for="restaurant_select">Discount Name</label>
+            <input type="text" name="name" id="name" value="<%= @discount.name %>">
+          </div>
+        </div>
+        <div class="one-third column">
+          <div class="form-group">
+            <label for="discount_multiplier">Discount Type</label>
+            <select id="discount_multiplier" name="type">
+              <option value="percentage" <%= "selected" if @discount.type == "percentage" %> >percentage</option>
+              <option value="deduction" <%= "selected" if @discount.type == "deduction" %> >deduction</option>
+            </select>
+          </div>
+        </div>
+        <div class="one-third column">
+          <div class="form-group">
+            <label for="discount_multiplier">Amount</label>
+            <input type="number" step="0.01" min=0 name="multiplier" id="discount_multiplier" value="<%= @discount.multiplier %>">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="three columns offset-by-two">
+          <div class="form-group">
+            <input type="submit" name="submit" value="Submit" class="button button-primary">
+          </div>
+        </div>
+        <div class="three columns">
+          <div class="form-group">
+            <a class="button" href="/admin/discounts">Cancel</a>
+          </div>
+        </div>
+      </form> 
+      <div class="three columns">
+        <div class="form-group">
+          <form method="post" action="/admin/discounts/<%= @discount.id %>">
+            <input type="hidden" name="_method" value="delete">
+            <button class="button button-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

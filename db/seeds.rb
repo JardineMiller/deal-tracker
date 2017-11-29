@@ -151,52 +151,80 @@ require_relative('../models/deal.rb')
 
 @discount = Discount.new({
   "name" => "5% Off",
+  "type" => "percentage",
   "multiplier" => 0.95
 })
 
 @discount2 = Discount.new({
   "name" => "10% Off",
+  "type" => "percentage",
   "multiplier" => 0.90
 })
 
 @discount3 = Discount.new({
   "name" => "15% Off",
+  "type" => "percentage",
   "multiplier" => 0.85
 })
 
 @discount4 = Discount.new({
   "name" => "20% Off",
+  "type" => "percentage",
   "multiplier" => 0.80
 })
 
 @discount5 = Discount.new({
   "name" => "25% Off",
+  "type" => "percentage",
   "multiplier" => 0.75
 })
 
 @discount6 = Discount.new({
   "name" => "30% Off",
+  "type" => "percentage",
   "multiplier" => 0.70
 })
 
 @discount7 = Discount.new({
   "name" => "35% Off",
+  "type" => "percentage",
   "multiplier" => 0.65
 })
 
 @discount8 = Discount.new({
   "name" => "40% Off",
+  "type" => "percentage",
   "multiplier" => 0.60
 })
 
 @discount9 = Discount.new({
   "name" => "45% Off",
+  "type" => "percentage",
   "multiplier" => 0.55
 })
 
 @discount10 = Discount.new({
-  "name" => "Two For One",
+  "name" => "50% Off",
+  "type" => "percentage",
   "multiplier" => 0.50
+})
+
+@discount11 = Discount.new({
+  "name" => "£5 Off",
+  "type" => "deduction",
+  "multiplier" => 5
+})
+
+@discount12 = Discount.new({
+  "name" => "£10 Off",
+  "type" => "deduction",
+  "multiplier" => 10
+})
+
+@discount13 = Discount.new({
+  "name" => "£15 Off",
+  "type" => "deduction",
+  "multiplier" => 15
 })
 
 @discount.save
@@ -209,6 +237,10 @@ require_relative('../models/deal.rb')
 @discount8.save
 @discount9.save
 @discount10.save
+
+@discount11.save
+@discount12.save
+@discount13.save
 
 @deal = Deal.new({
   "name" => "Two For One Tuesdays",
@@ -301,6 +333,27 @@ require_relative('../models/deal.rb')
   "day" => :mon
 })
 
+@deal14 = Deal.new({
+  "burger_id" => @burger9.id,
+  "name" => "Fantastic Fridays",
+  "discount_id" => @discount11.id,
+  "day" => :fri
+})
+
+@deal15 = Deal.new({
+  "burger_id" => @burger8.id,
+  "name" => "Fantastic Fridays",
+  "discount_id" => @discount11.id,
+  "day" => :fri
+})
+
+@deal16 = Deal.new({
+  "burger_id" => @burger7.id,
+  "name" => "Fantastic Fridays",
+  "discount_id" => @discount11.id,
+  "day" => :fri
+})
+
 @deal.save
 @deal2.save
 @deal3.save
@@ -318,6 +371,10 @@ require_relative('../models/deal.rb')
 @deal11.save
 @deal12.save
 @deal13.save
+
+@deal14.save
+@deal15.save
+@deal16.save
 
 binding.pry
 nil

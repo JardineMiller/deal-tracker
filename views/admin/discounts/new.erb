@@ -36,16 +36,25 @@
     <form class="offset-by-three" method="post" action="/admin/discounts">
 
       <div class="row">
-        <div class="one-half column">
+        <div class="one-third column">
           <div class="form-group">
             <label for="restaurant_select">Discount Name</label>
             <input type="text" name="name" id="name">
           </div>
         </div>
-        <div class="one-half column">
+        <div class="one-third column">
           <div class="form-group">
-            <label for="discount_multiplier">Discount Multiplier</label>
-            <input type="number" step="0.01" min=0 name="multipler" id="discount_multiplier">
+            <label for="discount_multiplier">Discount Type</label>
+            <select id="discount_multiplier" name="type">
+              <option value="percentage">percentage</option>
+              <option value="deduction">deduction</option>
+            </select>
+          </div>
+        </div>
+        <div class="one-third column">
+          <div class="form-group">
+            <label for="discount_multiplier">Amount</label>
+            <input type="number" step="0.01" min=0 name="multiplier" id="discount_multiplier">
           </div>
         </div>
       </div>

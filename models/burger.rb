@@ -7,7 +7,7 @@ class Burger
     @id = options["id"].to_i if options["id"]
     @restaurant_id = options["restaurant_id"].to_i
     @name = options["name"]
-    @type = options["type"].to_sym
+    @type = options["type"] || ""
     @price = options["price"].to_f
     @photo_url = options["photo_url"] if options["photo_url"]
     @description = options["description"] if options["description"]

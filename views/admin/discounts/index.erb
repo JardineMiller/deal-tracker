@@ -35,12 +35,14 @@
         <table class="u-full-width">
           <tr>
             <th>Deal Name</th>
-            <th>Discount Multiplier</th>
+            <th>Type</th>
+            <th>Amount</th>
             <th></th>
           </tr>
           <% @discounts.each do |discount| %>
           <tr>
             <td><%= discount.name %></td>
+            <td><%= discount.type %></td>
             <td><%= discount.multiplier %></td>
             <td><a href="/admin/discounts/<%= discount.id %>/edit" class="button button-primary">Edit</a>
             </tr>

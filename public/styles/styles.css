@@ -244,3 +244,33 @@ textarea {
 .form-group {
   padding: 0 5px;
 }
+
+.deal {
+  padding: 10px;
+}
+
+.deal h4, 
+.deal h5, 
+.deal h6, 
+.deal p {
+  margin: 0;
+}
+
+.deal p {
+  position: relative;
+  top: 0;
+}
+
+
+hr {
+  
+}
+
+.deal.burgers,
+.restaurant-bio {
+  position: absolute;
+  bottom: 10px;
+}
+
+
+

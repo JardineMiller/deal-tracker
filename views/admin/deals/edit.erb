@@ -27,3 +27,78 @@
     </li>
   </ul>
 </aside>
+
+<main class="display"> 
+  <div class="container small">
+    <h3>Edit Deal</h3>
+    <form class="offset-by-three" method="post" action="/admin/deals/<%= @deal.id %>">
+      <input type="hidden" name="_method" value="put">
+
+      <div class="row">
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="deal_name">Deal Name</label>
+            <input type="text" name="name" id="deal_name" value="<%= @deal.name %>">
+          </div>
+        </div>
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="discount_select">Discount</label>
+            <select id="discount_select" name="discount_id">
+              <% @discounts.each do |discount| %>
+              <option value ="<%= discount.id %>" <%= "selected" if @deal.discount_id == discount.id %> >
+                <%= discount.name.capitalize %>
+              </option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="burger_select">Burger</label>
+            <select id="burger_select" name="burger_id">
+              <% @burgers.each do |burger| %>
+              <option value ="<%= burger.id %>" <%= "selected" if @deal.burger_id == burger.id %> >
+                <%= burger.restaurant.name %> - <%= burger.name %>
+              </option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="one-half column">
+          <div class="form-group">
+            <label for="day">Day</label>
+            <select id="day" name="day">
+              <% @days.each do |day| %>
+              <option value="<%= day %>" <%= "selected" if @deal.day.to_s == day %> ><%= day.capitalize %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="three columns offset-by-two">
+            <div class="form-group">
+              <input type="submit" name="submit" value="Submit" class="button button-primary">
+            </div>
+          </div>
+          <div class="three columns">
+            <div class="form-group">
+              <a class="button" href="/admin/deals">Cancel</a>
+            </div>
+          </div>
+        </form> 
+        <div class="three columns">
+          <div class="form-group">
+            <form method="post" action="/admin/deals/<%= @deal.id %>">
+              <input type="hidden" name="_method" value="delete">
+              <button class="button button-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>

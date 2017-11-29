@@ -1,0 +1,41 @@
+<section class="show">
+  <div class="container">
+    <h3>Deal Details</h3>
+    <div class="row">
+      <div class="four columns tile">
+        <div class="tile-image" style="background-image: url('/images/burgers/<%= @deal.burger.photo_url %>');"></div>
+      </div>
+      <div class="three columns ">
+        <div class="deal details">
+          <h4><%= @deal.name %></h4> 
+          <h5><%= @deal.burger.name %></h5> 
+          <h5><a href="restaurants/<%= @deal.restaurant.id %>"> <%= @deal.restaurant.name %> </a> </h5>
+          <p class="muted"><del>£<%= @deal.burger.price %></del></p>
+          <p class="final-price">£<%= @deal.final_price %></p>
+          
+          <div class="deal burgers">
+            <h5>Burgers included:</h5>
+            <% @deal.burgers.each do |burger| %>
+            <p><a href="/burgers/<%= burger.id %>"><%= burger.name %></a></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="three columns">
+        <div class="deal details">
+          <h4>Restaurant Details</h4>
+          <h6><%= @deal.restaurant.name %></h6>
+          <p><%= @deal.restaurant.address %></p>
+          <p><a href="tel:<%= @deal.restaurant.tel %>"><%= @deal.restaurant.tel %></a></p>
+          <p><a href="mailto:<%= @deal.restaurant.email %>"><%= @deal.restaurant.email %></a></p>
+          <div class="restaurant-bio four columns">
+            <h6>Description: </h6>
+            <p><%= @deal.restaurant.bio %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+</section>

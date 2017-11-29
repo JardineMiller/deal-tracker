@@ -43,7 +43,7 @@
         </div>
         <div class="one-half column">
           <div class="form-group">
-            <label for="discount_select">Discount Name</label>
+            <label for="discount_select">Discount</label>
             <select id="discount_select" name="discount_id">
               <% @discounts.each do |discount| %>
               <option value ="<%= discount.id %>" >
@@ -61,7 +61,7 @@
             <select id="burger_select" name="burger_id">
               <% @burgers.each do |burger| %>
               <option value ="<%= burger.id %>" >
-                <%= burger.name %>
+                <%= burger.restaurant.name %> - <%= burger.name %>
               </option>
               <% end %>
             </select>
