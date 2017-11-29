@@ -14,6 +14,6 @@ require_relative('models/discount.rb')
 
 get '/' do
   @deals = Deal.distinct_all
-  @day_today = Date.new.strftime(('%a')).downcase
+  @today = Date.today
   erb :index
 end

@@ -7,41 +7,41 @@ require_relative('../models/discount.rb')
 require_relative('../models/deal.rb')
 
 @restaurant = Restaurant.new({
-  "name" => "Brgr",
+  "name" => "The Retro Burger Bar",
   "tel" => "0131 666 1234",
-  "email" => "email@brgr.co.uk",
+  "email" => "email@retroburger.co.uk",
   "address" => "123 Fake Street, Edinburgh, EH1 2BC",
-  "logo_url" => "brgr.jpg",
+  "logo_url" => "retro.jpg",
   "distance" => 6,
   "bio" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
 })
 
 @restaurant2 = Restaurant.new({
-  "name" => "The Burger Factory",
+  "name" => "Monster Burger",
   "tel" => "0131 123 4567",
-  "email" => "email@burgerfactory.co.uk",
+  "email" => "email@monsterburger.co.uk",
   "address" => "345 Fake Street, Edinburgh, EH1 1AA",
-  "logo_url" => "burgerfactory.jpg",
+  "logo_url" => "monster_burger.jpg",
   "distance" => 5,
   "bio" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
 })
 
 @restaurant3 = Restaurant.new({
-  "name" => "Grillstock",
+  "name" => "Burger Wise",
   "tel" => "0131 222 3333",
-  "email" => "email@grillstock.co.uk",
+  "email" => "email@burgerwise.co.uk",
   "address" => "123 Fake Street, Edinburgh, EH10 234",
-  "logo_url" => "grillstock.jpg",
+  "logo_url" => "burger_wise.jpg",
   "distance" => 14,
   "bio" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
 })
 
 @restaurant4 = Restaurant.new({
-  "name" => "Meat Shack",
+  "name" => "Burger Stacks",
   "tel" => "0131 109 555",
-  "email" => "email@meatshack.co.uk",
+  "email" => "email@burgerstacks.co.uk",
   "address" => "21 Cloud Avenue, Edinburgh, EH3 234",
-  "logo_url" => "meatshack.jpg",
+  "logo_url" => "burger_stacks.jpg",
   "distance" => 11,
   "bio" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
 })
@@ -128,12 +128,40 @@ require_relative('../models/deal.rb')
   "photo_url" => "atomic_avacado.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
 })
+
 @burger9 = Burger.new({
   "name" => "The Coronary",
   "restaurant_id" => @restaurant3.id,
   "type" => :custom,
   "price" => 13.99,
   "photo_url" => "the_coronary.jpg",
+  "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
+})
+
+@burger10 = Burger.new({
+  "name" => "The Dude",
+  "restaurant_id" => @restaurant4.id,
+  "type" => :custom,
+  "price" => 16.99,
+  "photo_url" => "burger_1.jpg",
+  "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
+})
+
+@burger11 = Burger.new({
+  "name" => "The Demon",
+  "restaurant_id" => @restaurant4.id,
+  "type" => :custom,
+  "price" => 13.99,
+  "photo_url" => "burger_2.jpg",
+  "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
+})
+
+@burger12 = Burger.new({
+  "name" => "The Happy Jalepeno",
+  "restaurant_id" => @restaurant4.id,
+  "type" => :custom,
+  "price" => 10.99,
+  "photo_url" => "burger_3.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat, ut rump cillum voluptate shoulder. Burger cupidatat ipsum, eiusmod strip steak lorem elit irure."
 })
 
@@ -148,6 +176,10 @@ require_relative('../models/deal.rb')
 @burger7.save
 @burger8.save
 @burger9.save
+
+@burger10.save
+@burger11.save
+@burger12.save
 
 @discount = Discount.new({
   "name" => "5% Off",
@@ -308,21 +340,21 @@ require_relative('../models/deal.rb')
 @deal10 = Deal.new({
   "burger_id" => @burger4.id,
   "name" => "Festive Season",
-  "discount_id" => @discount6.id,
+  "discount_id" => @discount2.id,
   "day" => :mon
 })
 
 @deal11 = Deal.new({
   "burger_id" => @burger5.id,
   "name" => "Festive Season",
-  "discount_id" => @discount6.id,
+  "discount_id" => @discount2.id,
   "day" => :mon
 })
 
 @deal12 = Deal.new({
   "burger_id" => @burger6.id,
   "name" => "Festive Season",
-  "discount_id" => @discount6.id,
+  "discount_id" => @discount2.id,
   "day" => :mon
 })
 
@@ -347,6 +379,27 @@ require_relative('../models/deal.rb')
   "day" => :fri
 })
 
+@deal16 = Deal.new({
+  "burger_id" => @burger10.id,
+  "name" => "Happy Humpday",
+  "discount_id" => @discount12.id,
+  "day" => :wed
+})
+
+@deal17 = Deal.new({
+  "burger_id" => @burger11.id,
+  "name" => "Happy Humpday",
+  "discount_id" => @discount12.id,
+  "day" => :wed
+})
+
+@deal18 = Deal.new({
+  "burger_id" => @burger12.id,
+  "name" => "Happy Humpday",
+  "discount_id" => @discount12.id,
+  "day" => :wed
+})
+
 @deal.save
 @deal2.save
 @deal3.save
@@ -367,6 +420,10 @@ require_relative('../models/deal.rb')
 
 @deal14.save
 @deal15.save
+
+@deal16.save
+@deal17.save
+@deal18.save
 
 binding.pry
 nil

@@ -1,23 +1,37 @@
+<% 7.times do %>
+
 <section class="deals">
   <div class="container">
-    <div class="today">
-      <h4>Today's Deals</h4>
+      <h4 id="<%= @today.strftime(('%a')).downcase %>"><%= @today.strftime(('%A')).capitalize %>'s Deals</h4>
       <!-- <div class="row"> -->
         <% @deals.each do |deal|  %>
           <!-- CREATE NEW DEAL METHOD TO HANDLE DAY SELECTION -->
+          
+          <% if @today.strftime(('%a')).downcase == deal.day.to_s %>
+
           <a href="/deals/<%= deal.id %>">
             <div class="three columns tile">
               <div class="tile-image" style="background-image: url('/images/burgers/<%= deal.burger.photo_url %>');"></div>
               <div class="tile-overlay">
                 <h4><%= deal.name %></h4>
                 <h5><%= deal.restaurant.name %></h5>
+                <p class="bottom-right"><%= deal.discount.name %></p>
                 <p class="muted"><del>£<%= deal.burger.price %></del></p>
                 <p class="final-price">£<%= deal.final_price %></p>
               </div>
             </div>
           </a>
+          
+          <% end %>
+          
+
         <% end %> 
       <!-- </div> -->
-    </div>
   </div>
 </section>
+
+<% @today += 1 %>
+
+<% end %>
+
+
