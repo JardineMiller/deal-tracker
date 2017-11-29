@@ -15,6 +15,8 @@
   color: #fff;
 }
 
+
+
 body {
   margin-top: 60px;
 }
@@ -263,7 +265,7 @@ textarea {
 
 
 hr {
-  
+
 }
 
 .deal.burgers,
@@ -272,5 +274,8 @@ hr {
   bottom: 10px;
 }
 
+.margin_top {
+  margin-top: 20px !important;
+}
 
 

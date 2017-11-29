@@ -129,9 +129,9 @@ class Deal
     ON discount_id = discounts.id
     INNER JOIN burgers
     ON burger_id = burgers.id
-    WHERE discount_id = $1
+    WHERE discount_id = $1 AND day = $2
     "
-    values = [@discount_id]
+    values = [@discount_id, @day]
     result = SqlRunner.run(sql, values)
     return result.map { |burger| Burger.new(burger) }
   end
