@@ -425,5 +425,230 @@ require_relative('../models/deal.rb')
 @deal17.save
 @deal18.save
 
+@deal19 = Deal.new({
+  "burger_id" => @burger1.id,
+  "name" => "Greasy Wednesdays",
+  "discount_id" => @discount4.id,
+  "day" => :wed
+})
+
+@deal20 = Deal.new({
+  "burger_id" => @burger2.id,
+  "name" => "Greasy Wednesdays",
+  "discount_id" => @discount4.id,
+  "day" => :wed
+})
+
+@deal21 = Deal.new({
+  "burger_id" => @burger3.id,
+  "name" => "Greasy Wednesdays",
+  "discount_id" => @discount4.id,
+  "day" => :wed
+})
+
+@deal22 = Deal.new({
+  "burger_id" => @burger4.id,
+  "name" => "Mid Week Madness",
+  "discount_id" => @discount9.id,
+  "day" => :wed
+})
+
+@deal23 = Deal.new({
+  "burger_id" => @burger5.id,
+  "name" => "Mid Week Madness",
+  "discount_id" => @discount9.id,
+  "day" => :wed
+})
+
+@deal24 = Deal.new({
+  "burger_id" => @burger6.id,
+  "name" => "Mid Week Madness",
+  "discount_id" => @discount9.id,
+  "day" => :wed
+})
+
+@deal25 = Deal.new({
+  "burger_id" => @burger7.id,
+  "name" => "Thursdays Are The Best",
+  "discount_id" => @discount3.id,
+  "day" => :thu
+})
+
+@deal26 = Deal.new({
+  "burger_id" => @burger8.id,
+  "name" => "Thursdays Are The Best",
+  "discount_id" => @discount3.id,
+  "day" => :thu
+})
+
+@deal27 = Deal.new({
+  "burger_id" => @burger9.id,
+  "name" => "Thursdays Are The Best",
+  "discount_id" => @discount3.id,
+  "day" => :thu
+})
+
+@deal19.save
+@deal20.save
+@deal21.save
+
+@deal22.save
+@deal23.save
+@deal24.save
+
+@deal25.save
+@deal26.save
+@deal27.save
+
+@deal28 = Deal.new({
+  "burger_id" => @burger10.id,
+  "name" => "Happy Burger Day",
+  "discount_id" => @discount5.id,
+  "day" => :thu
+})
+
+@deal29 = Deal.new({
+  "burger_id" => @burger11.id,
+  "name" => "Happy Burger Day",
+  "discount_id" => @discount5.id,
+  "day" => :thu
+})
+
+@deal30 = Deal.new({
+  "burger_id" => @burger12.id,
+  "name" => "Happy Burger Day",
+  "discount_id" => @discount5.id,
+  "day" => :thu
+})
+
+@deal31 = Deal.new({
+  "burger_id" => @burger4.id,
+  "name" => "Weekend Offer",
+  "discount_id" => @discount3.id,
+  "day" => :sat
+})
+
+@deal32 = Deal.new({
+  "burger_id" => @burger5.id,
+  "name" => "Weekend Offer",
+  "discount_id" => @discount3.id,
+  "day" => :sat
+})
+
+@deal33 = Deal.new({
+  "burger_id" => @burger6.id,
+  "name" => "Weekend Offer",
+  "discount_id" => @discount3.id,
+  "day" => :sat
+})
+
+@deal34 = Deal.new({
+  "burger_id" => @burger1.id,
+  "name" => "End of Week Party",
+  "discount_id" => @discount5.id,
+  "day" => :sat
+})
+
+@deal35 = Deal.new({
+  "burger_id" => @burger2.id,
+  "name" => "End of Week Party",
+  "discount_id" => @discount5.id,
+  "day" => :sat
+})
+
+@deal36 = Deal.new({
+  "burger_id" => @burger3.id,
+  "name" => "End of Week Party",
+  "discount_id" => @discount5.id,
+  "day" => :sat
+})
+
+@deal28.save
+@deal29.save
+@deal30.save
+
+@deal31.save
+@deal32.save
+@deal33.save
+
+@deal34.save
+@deal35.save
+@deal36.save
+
+@deal37 = Deal.new({
+  "burger_id" => @burger11.id,
+  "name" => "End of Week",
+  "discount_id" => @discount5.id,
+  "day" => :fri
+})
+
+@deal38 = Deal.new({
+  "burger_id" => @burger12.id,
+  "name" => "End of Week",
+  "discount_id" => @discount5.id,
+  "day" => :fri
+})
+
+@deal39 = Deal.new({
+  "burger_id" => @burger10.id,
+  "name" => "End of Week",
+  "discount_id" => @discount5.id,
+  "day" => :fri
+})
+
+@deal40 = Deal.new({
+  "burger_id" => @burger11.id,
+  "name" => "School's Out",
+  "discount_id" => @discount2.id,
+  "day" => :sat
+})
+
+@deal41 = Deal.new({
+  "burger_id" => @burger12.id,
+  "name" => "School's Out",
+  "discount_id" => @discount2.id,
+  "day" => :sat
+})
+
+@deal42 = Deal.new({
+  "burger_id" => @burger10.id,
+  "name" => "School's Out",
+  "discount_id" => @discount2.id,
+  "day" => :sat
+})
+
+@deal43 = Deal.new({
+  "burger_id" => @burger4.id,
+  "name" => "Payday, Baby",
+  "discount_id" => @discount.id,
+  "day" => :fri
+})
+
+@deal44 = Deal.new({
+  "burger_id" => @burger5.id,
+  "name" => "Payday, Baby",
+  "discount_id" => @discount.id,
+  "day" => :fri
+})
+
+@deal45 = Deal.new({
+  "burger_id" => @burger6.id,
+  "name" => "Payday, Baby",
+  "discount_id" => @discount.id,
+  "day" => :fri
+})
+
+@deal37.save
+@deal38.save
+@deal39.save
+
+@deal40.save
+@deal41.save
+@deal42.save
+
+@deal43.save
+@deal44.save
+@deal45.save
+
 binding.pry
 nil
