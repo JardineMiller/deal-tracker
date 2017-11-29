@@ -101,7 +101,7 @@ section {
 }
 
 .tile-overlay h5 {
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
   font-size: 20px;
 }
 
@@ -109,6 +109,13 @@ section {
 .muted {
   position: absolute;
   bottom: 0;
+}
+
+.bottom-right {
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+  padding: 4%;
 }
 
 .final-price {
@@ -272,6 +279,7 @@ hr {
 .restaurant-bio {
   position: absolute;
   bottom: 10px;
+  padding-left: 0;
 }
 
 .margin_top {
