@@ -44,9 +44,10 @@
           <div class="tile-overlay">
             <h4><%= deal.name %></h4>
             <h5><%= deal.burger.restaurant.name %></h5>
+            <h6><%= deal.discount.name %></h6>
             <p class="bottom-right"><%= deal.day.capitalize %></p>
             <p class="muted"><del>£<%= deal.burger.price %></del></p>
-            <p class="final-price">£<%= deal.discount.type == 'percentage'? sprintf('%.2f', (deal.burger.price * deal.discount.multiplier)) : sprintf('%.2f', (deal.burger.price - deal.discount.multiplier)) %></p>
+            <p class="final-price">£<%= deal.final_price %></p>
           </div>
         </div>
       </a>

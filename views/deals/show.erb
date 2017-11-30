@@ -52,7 +52,7 @@
             <h4><%= burger.name %></h4>
             <h5><%= burger.restaurant.name %></h5>
             <p class="muted"><del>£<%= burger.price %></del></p>
-            <p class="final-price">£<%= @deal.discount.type == 'percentage'? sprintf('%.2f', (burger.price * @deal.discount.multiplier)) : sprintf('%.2f', (burger.price - @deal.discount.multiplier)) %></p>
+            <p class="final-price">£<%= burger.final_price(@deal) %></p>
           </div>
         </div>
       </a>
@@ -68,14 +68,12 @@
       <% @deal.restaurant.deals.each do |deal| %>
       <a href="/deals/<%= deal.id %>">
         <div class="three columns tile">
-          <div class="tile-image" style="background-image: url('/images/burgers/<%= deal.burger.photo_url %>');"></div>
+          <div class="tile-image" style="background-image: url('/images/logos/<%= deal.restaurant.logo_url %>');"></div>
           <div class="tile-overlay">
             <h4><%= deal.name %></h4>
             <h5><%= deal.restaurant.name %></h5>
-            <p><%= deal.discount.name %></p>
             <p class="bottom-right"><%= deal.day.capitalize %></p>
-            <p class="muted"><del>£<%= deal.burger.price %></del></p>
-            <p class="final-price">£<%= deal.final_price %></p>          
+            <p class="final-price"><%= deal.discount.name %></p>          
           </div>
         </div>
       </a>
