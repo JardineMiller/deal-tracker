@@ -613,21 +613,21 @@ require_relative('../models/deal.rb')
 
 @deal46 = Deal.new({
   "burger_id" => @burger10.id,
-  "name" => "It's Not Monday",
+  "name" => "It's Not Monday?",
   "discount_id" => @discount5.id,
   "day" => :tue
 })
 
 @deal47 = Deal.new({
   "burger_id" => @burger11.id,
-  "name" => "It's Not Monday",
+  "name" => "It's Not Monday?",
   "discount_id" => @discount5.id,
   "day" => :tue
 })
 
 @deal48 = Deal.new({
   "burger_id" => @burger12.id,
-  "name" => "It's Not Monday",
+  "name" => "It's Not Monday?",
   "discount_id" => @discount5.id,
   "day" => :tue
 })
