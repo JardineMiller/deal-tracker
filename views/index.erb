@@ -1,38 +1,60 @@
-<% 7.times do %>
+<input id="slide-sidebar" type="checkbox" role="button" />
+<label class="button" for="slide-sidebar"><span>Select Day</span></label>
+   
+  <ul class="day-list">
+    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "mon" %>" href="#mon">Monday</a></li>
+    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "tue" %>" href="#tue">Tuesday</a></li>
+    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "wed" %>" href="#wed">Wednesday</a></li>
+    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "thu" %>" href="#thu">Thursday</a></li>
+    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "fri" %>" href="#fri">Friday</a></li>
+    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "sat" %>" href="#sat">Saturday</a></li>
+    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "sun" %>" href="#sun">Sunday</a></li>
+  </ul>
 
+
+<% 7.times do %>
+<% empty = true %>
+
+<div id="<%= @today.strftime(('%a')).downcase %>" style="position: relative; bottom: 50px;"></div>
 <section class="deals">
   <div class="container">
-      <h4 id="<%= @today.strftime(('%a')).downcase %>"><%= @today.strftime(('%A')).capitalize %>'s Deals</h4>
-      <!-- <div class="row"> -->
-        <% @deals.each do |deal|  %>
-          <!-- CREATE NEW DEAL METHOD TO HANDLE DAY SELECTION-->
-          <!-- No. This is easier.-->
-          
-          <% if @today.strftime(('%a')).downcase == deal.day.to_s %>
+    <h4><%= @today.strftime(('%A')).capitalize %>'s Deals</h4>
+    <!-- <div class="row"> -->
+      <% @deals.each do |deal|  %>
+      <!-- CREATE NEW DEAL METHOD TO HANDLE DAY SELECTION-->
+      <!-- No. This is easier.-->
 
-          <a href="/deals/<%= deal.id %>">
-            <div class="three columns tile">
-              <div class="tile-image" style="background-image: url('/images/burgers/<%= deal.burger.photo_url %>');"></div>
-              <div class="tile-overlay">
-                <h4><%= deal.name %></h4>
-                <h5><%= deal.restaurant.name %></h5>
-                <p class="bottom-right"><%= deal.discount.name %></p>
-                <p class="muted"><del>£<%= deal.burger.price %></del></p>
-                <p class="final-price">£<%= deal.final_price %></p>
-              </div>
-            </div>
-          </a>
-          
-          <% end %>
-          
+      <% if @today.strftime(('%a')).downcase == deal.day.to_s %>
 
-        <% end %> 
+      <a href="/deals/<%= deal.id %>">
+        <div class="three columns tile">
+          <div class="tile-image" style="background-image: url('/images/burgers/<%= deal.burger.photo_url %>');"></div>
+          <div class="tile-overlay">
+            <h4><%= deal.name %></h4>
+            <h5><%= deal.restaurant.name %></h5>
+            <p class="bottom-right"><%= deal.discount.name %></p>
+            <p class="muted"><del>£<%= deal.burger.price %></del></p>
+            <p class="final-price">£<%= deal.final_price %></p>
+          </div>
+        </div>
+      </a>
+
+      <% empty = false %>
+
+      <% end %>
+      <% end %>
+
+      <%= "<p class='large'>Sorry friend, there are no deals today :(</p>" if empty %>
+
+
+
       <!-- </div> -->
-  </div>
-</section>
+    </div>
+  </section>
 
-<% @today += 1 %>
 
-<% end %>
+  <% @today += 1 %>
+
+  <% end %>
 
 
