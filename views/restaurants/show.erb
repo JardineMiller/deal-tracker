@@ -25,28 +25,7 @@
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <h3>Current Deals</h3>
-    <div class="row">
-      <% @restaurant.deals.each do |deal| %>
-      <a href="/deals/<%= deal.id %>">
-        <div class="three columns tile">
-          <div class="tile-image" style="background-image: url('/images/burgers/<%= deal.burger.photo_url %>');"></div>
-          <div class="tile-overlay">
-            <h4><%= deal.name %></h4>
-            <h5><%= deal.restaurant.name %></h5>
-            <p><%= deal.discount.name %></p>
-            <p class="bottom-right"><%= deal.day.capitalize %></p>
-            <p class="muted"><del>£<%= deal.burger.price %></del></p>
-            <p class="final-price">£<%= deal.final_price %></p>          
-          </div>
-        </div>
-      </a>
-      <% end %>
-    </div>
-  </div>
-</section>
+
 
 <section>
   <div class="container">
@@ -59,6 +38,28 @@
           <div class="tile-overlay">
             <h4><%= burger.name %></h4>
             <p class="final-price">£<%= burger.price %></p>
+          </div>
+        </div>
+      </a>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h3>Current Deals</h3>
+    <div class="row">
+      <% @restaurant.deals.each do |deal| %>
+      <a href="/deals/<%= deal.id %>">
+        <div class="three columns tile">
+          <div class="tile-image" style="background-image: url('/images/logos/<%= deal.restaurant.logo_url %>');"></div>
+          <div class="tile-overlay">
+            <h4><%= deal.name %></h4>
+            <h5><%= deal.restaurant.name %></h5>
+            
+            <p class="bottom-right"><%= deal.day.capitalize %></p>
+            <p class="final-price"><%= deal.discount.name %></p>          
           </div>
         </div>
       </a>
