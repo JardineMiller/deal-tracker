@@ -313,11 +313,11 @@ p.large {
 }
 
 .day-list li a {
-  width: 150px;
+  width: 125px;
 }
 
 label.button {
-  width: 150px;
+  width: 125px;
   margin: 15px;
   position: fixed;
 }
