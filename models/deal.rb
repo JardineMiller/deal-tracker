@@ -121,7 +121,17 @@ class Deal
   # =========================== INFO ==============================
   
   def burger
-     return self.burgers.sample
+    sql = "
+    SELECT burgers.* FROM deals
+    INNER JOIN burgers
+    ON deals.burger_id = burgers.id
+    INNER JOIN restaurants
+    ON burgers.restaurant_id = restaurants.id
+    WHERE deals.id = $1
+    "
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    return Burger.new(result)
   end
 
   def burgers
