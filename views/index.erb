@@ -19,10 +19,7 @@
 <section class="deals">
   <div class="container">
     <h4><%= @today.strftime(('%A')).capitalize %>'s Deals</h4>
-    <!-- <div class="row"> -->
       <% @deals.each do |deal|  %>
-      <!-- CREATE NEW DEAL METHOD TO HANDLE DAY SELECTION-->
-      <!-- No. This is easier.-->
 
       <% if @today.strftime(('%a')).downcase == deal.day.to_s %>
 
