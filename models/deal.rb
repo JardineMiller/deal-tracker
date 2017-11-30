@@ -122,7 +122,7 @@ class Deal
   
   def burger
     sql = "
-    SELECT DISTINCT ON (restaurant_id, deals.name) burgers.* FROM deals
+    SELECT burgers.* FROM deals
     INNER JOIN burgers
     ON deals.burger_id = burgers.id
     INNER JOIN restaurants
