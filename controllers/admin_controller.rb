@@ -115,7 +115,7 @@ end
 
 delete '/admin/deals/:id' do #RESTAURANT - DELETE
   deal = Deal.find(params[:id])
-  deal.delete
+  deal.delete_deal
   redirect to '/admin/deals'
 end
 
