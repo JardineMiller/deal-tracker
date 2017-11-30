@@ -48,12 +48,24 @@ class Deal
     SqlRunner.run(sql, values)
   end
 
-  def delete
+  def delete_single
     sql = "
     DELETE FROM deals
     WHERE id = $1
     "
     values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete_deal
+    sql = "
+    DELETE FROM deals
+    USING burgers, restaurants, discounts
+    WHERE deals.discount_id = discounts.id AND
+    deals.burger_id = burgers.id AND
+    deals.name = $1 AND deals.day = $2 AND burgers.restaurant_id = $3
+    "
+    values = [@name, @day, self.burger.restaurant_id]
     SqlRunner.run(sql, values)
   end
 
