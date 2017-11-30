@@ -1,27 +1,30 @@
 <input id="slide-sidebar" type="checkbox" role="button" />
 <label class="button" for="slide-sidebar"><span>Select Day</span></label>
-   
-  <ul class="day-list">
-    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "mon" %>" href="#mon">Monday</a></li>
-    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "tue" %>" href="#tue">Tuesday</a></li>
-    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "wed" %>" href="#wed">Wednesday</a></li>
-    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "thu" %>" href="#thu">Thursday</a></li>
-    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "fri" %>" href="#fri">Friday</a></li>
-    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "sat" %>" href="#sat">Saturday</a></li>
-    <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "sun" %>" href="#sun">Sunday</a></li>
-  </ul>
 
+<ul class="day-list">
+  <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "mon" %>" href="#mon">Monday</a></li>
+  <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "tue" %>" href="#tue">Tuesday</a></li>
+  <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "wed" %>" href="#wed">Wednesday</a></li>
+  <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "thu" %>" href="#thu">Thursday</a></li>
+  <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "fri" %>" href="#fri">Friday</a></li>
+  <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "sat" %>" href="#sat">Saturday</a></li>
+  <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "sun" %>" href="#sun">Sunday</a></li>
+</ul>
+
+<% short_day = @today.strftime(('%a')) %>
+<% long_day = @today.strftime(('%A')) %>
 
 <% 7.times do %>
+
 <% empty = true %>
 
-<div id="<%= @today.strftime(('%a')).downcase %>" style="position: relative; bottom: 50px;"></div>
+<div id="<%= short_day.downcase %>" style="position: relative; bottom: 50px;"></div>
 <section class="deals">
   <div class="container">
-    <h4><%= @today.strftime(('%A')).capitalize %>'s Deals</h4>
-      <% @deals.each do |deal|  %>
+    <h4><%= long_day.capitalize %>'s Deals</h4>
+    <% @deals.each do |deal|  %>
 
-      <% if @today.strftime(('%a')).downcase == deal.day.to_s %>
+      <% if short_day.downcase == deal.day.to_s %>
 
       <a href="/deals/<%= deal.id %>">
         <div class="three columns tile">
@@ -39,19 +42,14 @@
       <% empty = false %>
 
       <% end %>
-      <% end %>
+    <% end %>
 
-      <%= "<p class='large'>Sorry friend, there are no deals today :(</p>" if empty %>
+    <%= "<p class='large'>Sorry friend, there are no deals today :(</p>" if empty %>
+  </div>
+</section>
 
+<% @today += 1 %>
 
-
-      <!-- </div> -->
-    </div>
-  </section>
-
-
-  <% @today += 1 %>
-
-  <% end %>
+<% end %>
 
 
