@@ -33,6 +33,7 @@
 <main class="display">
   <div class="row">
     <div class="twelve columns">
+      <h5>Deals</h5>
       <table class="u-full-width">
         <tr>
           <th>Deal Name</th>
@@ -44,7 +45,7 @@
         </tr>
         <% @deals.each do |deal| %>
         <tr>
-          <td><a href="/admin/deal/<%= deal.id %>"><%= deal.name %></a></td>
+          <td><%= deal.name %></a></td>
           <td><%= deal.discount.name %></td>
           <td><%= deal.burger.restaurant.name %></td>
           <td><%= deal.discount.multiplier %></td>
