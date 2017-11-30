@@ -33,6 +33,7 @@
 <main class="display">
   <div class="row">
     <div class="twelve columns">
+      <h5>Restaurants</h5>
       <table class="u-full-width">
         <tr>
           <th>Restaurant Name</th>
@@ -46,7 +47,7 @@
         </tr>
         <% @restaurants.each do |restaurant| %>
         <tr>
-          <td><a href="/admin/restaurant/<%= restaurant.id %>"><%= restaurant.name %></a></td>
+          <td><%= restaurant.name %></a></td>
           <td><%= restaurant.tel %></td>
           <td><%= restaurant.email %></td>
           <td><%= restaurant.address %></td>
