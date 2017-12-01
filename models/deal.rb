@@ -57,7 +57,7 @@ class Deal
     SqlRunner.run(sql, values)
   end
 
-  def delete_deal
+  def delete_deal # Deletes all "instaces" of a deal (multiple burgers per deal)
     sql = "
     DELETE FROM deals
     USING burgers, restaurants, discounts
