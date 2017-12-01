@@ -99,6 +99,29 @@
             </form>
           </div>
         </div>
+
+        
+        <div class="one-half column offset-by-three"> 
+          <table>
+            <tr>
+              <th>Burger Name</th>
+              <th>Burger Price</th>
+              <th>Restaurant Name</th>
+              <th></th>
+            </tr>
+            <% @deal.burgers.each do |burger| %>
+            <tr>
+              <td><%= burger.name %></td>
+              <td><%= burger.price %></td>
+              <td><%= burger.restaurant.name %></td>
+              <td><form method="post" class="no-marg" action="/admin/deals/<%= @deal.id %>/delete-burger/<%= burger.id %>">
+              <input type="hidden" name="_method" value="delete">
+              <button class="button button-danger">Delete</button>
+            </form></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
       </div>
     </div>
   </main>

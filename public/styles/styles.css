@@ -340,6 +340,10 @@ input#slide-sidebar {
   display: none;
 }
 
+.no-marg {
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .day-list {
     display: none !important;

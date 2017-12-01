@@ -108,12 +108,21 @@ get '/admin/deals/:id/edit' do #DEALS - EDIT
   erb (:"/admin/deals/edit")
 end
 
-put '/admin/deals/:id' do #RESTAURANT - UPDATE
+delete '/admin/deals/:id/delete-burger/:burger_id' do #DEALS - DELETE BURGER
+  id = params[:id]
+  deal = Deal.find(params[:id])
+  burger = Burger.find(params[:burger_id])
+  deal.delete_burger(burger.id)
+  redirect to '/admin/deals'
+end
+
+
+put '/admin/deals/:id' do #DEALS - UPDATE
   Deal.new(params).update
   redirect to '/admin/deals'
 end
 
-delete '/admin/deals/:id' do #RESTAURANT - DELETE
+delete '/admin/deals/:id' do #DEALS - DELETE
   deal = Deal.find(params[:id])
   deal.delete_deal
   redirect to '/admin/deals'

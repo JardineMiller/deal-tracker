@@ -57,7 +57,20 @@ class Deal
     SqlRunner.run(sql, values)
   end
 
-  def delete_deal # Deletes all "instaces" of a deal (multiple burgers per deal)
+  def delete_burger(burger_id)
+    sql = "
+    DELETE FROM deals
+    USING burgers, restaurants, discounts
+    WHERE deals.discount_id = discounts.id AND
+    deals.burger_id = burgers.id AND
+    deals.name = $1 AND deals.day = $2 AND burger_id = $3
+    "
+    values = [@name, @day, burger_id]
+    SqlRunner.run(sql, values)
+  end
+    
+
+  def delete_deal # Deletes all "instances" of a deal (multiple burgers per deal)
     sql = "
     DELETE FROM deals
     USING burgers, restaurants, discounts
