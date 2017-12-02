@@ -31,50 +31,56 @@
 </aside>
 
 <main class="display"> 
-  <div class="container small">
-    <h3>Edit Restaurant</h3>
-    <form class="offset-by-three" method="post" action="/admin/restaurants/<%= @restaurant.id %>">
+  <div class="container">
+    <form class="offset-by-two eight columns" method="post" action="/admin/restaurants/<%= @restaurant.id %>">
+      <h3>Edit Restaurant</h3>
       <input type="hidden" name="_method" value="put">
       <div class="row">
-        <div class="four columns">
+        <div class="six columns">
           <div class="form-group">
             <label for="restaurant_name">Restaurant Name</label>
             <input type="text" name="name" id="restaurant_name" value="<%= @restaurant.name %>">
           </div>
         </div>
-        <div class="four columns">
+        <div class="six columns">
           <div class="form-group">
             <label for="tel">Telephone</label>
             <input type="text" name="tel" id="tel" value="<%= @restaurant.tel %>">
           </div>
         </div>
-        <div class="four columns">
-          <div class="form-group">
-            <label for="logo">Logo</label>
-            <input type="file" name="logo_url" id="logo" value="<%= @restaurant.logo_url %>">
-          </div>
-        </div>
       </div>
       <div class="row">
-        <div class="four columns">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" name="email" value="<%= @restaurant.email %>">
-          </div>
-        </div>
-        <div class="four columns">
+        <div class="twelve columns">
           <div class="form-group">
             <label for="address">Address</label>
             <input type="text" name="address" id="address" value="<%= @restaurant.address %>">
           </div>
         </div>
-        <div class="four columns">
+      </div>
+      <div class="row">
+        <div class="six columns">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" value="<%= @restaurant.email %>">
+          </div>
+        </div>
+        <div class="six columns">
           <div class="form-group">
             <label for="distance">Distance</label>
             <input type="number" name="distance" id="distance" value="<%= @restaurant.distance %>">
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <div class="form-group">
+            <label for="logo">Logo</label>
+            <input type="file" name="logo_url" id="logo" value="<%= @restaurant.logo_url %>">
+          </div>
+        </div>
+      </div>
+
 
       <div class="row">
         <div class="twelve columns">
@@ -86,26 +92,26 @@
       </div>
 
       <div class="row">
-            <div class="three columns offset-by-two">
-              <div class="form-group">
-                <input type="submit" name="submit" value="Submit" class="button button-primary">
-              </div>
-            </div>
-            <div class="three columns">
-              <div class="form-group">
-                <a class="button" href="/admin/restaurants">Cancel</a>
-              </div>
-            </div>
-          </form> 
-          <div class="three columns">
-            <div class="form-group">
-              <form method="post" action="/admin/restaurants/<%= @restaurant.id %>">
-                <input type="hidden" name="_method" value="delete">
-                <button class="button button-danger">Delete</button>
-              </form>
-            </div>
+        <div class="three columns offset-by-two">
+          <div class="form-group">
+            <input type="submit" name="submit" value="Submit" class="button button-primary">
+          </div>
+        </div>
+        <div class="three columns">
+          <div class="form-group">
+            <a class="button" href="/admin/restaurants">Cancel</a>
+          </div>
+        </div>
+      </form> 
+      <div class="three columns">
+        <div class="form-group">
+          <form method="post" action="/admin/restaurants/<%= @restaurant.id %>">
+            <input type="hidden" name="_method" value="delete">
+            <button class="button button-danger">Delete</button>
+          </form>
         </div>
       </div>
+    </div>
   </div>
 </main>
 

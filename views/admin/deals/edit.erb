@@ -29,9 +29,9 @@
 </aside>
 
 <main class="display"> 
-  <div class="container small">
-    <h3>Edit Deal</h3>
-    <form class="offset-by-three" method="post" action="/admin/deals/<%= @deal.id %>">
+  <div class="container">
+    <form class="offset-by-two eight columns" method="post" action="/admin/deals">
+      <h3>Edit Deal</h3>
       <input type="hidden" name="_method" value="put">
 
       <div class="row">
@@ -101,7 +101,8 @@
         </div>
 
         
-        <div class="one-half column offset-by-three"> 
+        <div class="twelve columns"> 
+          <h3>Burgers in deal</h3>
           <table>
             <tr>
               <th>Burger Name</th>

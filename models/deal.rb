@@ -161,6 +161,10 @@ class Deal
     return result.map { |burger| Burger.new(burger) }
   end
 
+  def burger_count
+    return self.burgers.count
+  end
+
   def restaurant
     sql = "
     SELECT DISTINCT ON (restaurant_id, deals.name) restaurants.* FROM deals

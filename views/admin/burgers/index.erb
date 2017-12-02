@@ -32,12 +32,12 @@
 
 <main class="display">
   <div class="row">
-    <div class="twelve columns">
+    <div class="ten columns offset-by-one">
       <h5>Burgers</h5>
       <table class="u-full-width">
         <tr>
-          <th>Restaurant Name</th>
           <th>Burger Name</th>
+          <th>Restaurant Name</th>
           <th>Type</th>
           <th>Price</th>
           <th>Filename</th>
@@ -46,8 +46,8 @@
         </tr>
         <% @burgers.each do |burger| %>
         <tr>
-          <td><%= burger.restaurant.name %></a></td>
           <td><%= burger.name %></td>
+          <td><%= burger.restaurant.name %></a></td>
           <td><%= burger.type.to_s %></td>
           <td><%= burger.price.to_f %></td>
           <td><%= burger.photo_url %></td>

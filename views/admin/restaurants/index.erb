@@ -32,7 +32,7 @@
 
 <main class="display">
   <div class="row">
-    <div class="twelve columns">
+    <div class="ten columns offset-by-one">
       <h5>Restaurants</h5>
       <table class="u-full-width">
         <tr>
@@ -52,7 +52,7 @@
           <td><%= restaurant.email %></td>
           <td><%= restaurant.address %></td>
           <td><%= restaurant.logo_url %></td>
-          <td><%= restaurant.distance %></td>
+          <td class="center"><%= restaurant.distance %></td>
           <td><%= restaurant.bio %></td>
           <td><a href="/admin/restaurants/<%= restaurant.id %>/edit" class="button button-primary">Edit</a></td>
         </tr>

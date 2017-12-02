@@ -31,9 +31,9 @@
 </aside>
 
 <main class="display"> 
-  <div class="container small">
-    <h3>Edit Burger</h3>
-    <form class="offset-by-three" method="post" action="/admin/burgers/<%= @burger.id %>">
+  <div class="container">
+    <form class="offset-by-two eight columns" method="post" action="/admin/burgers/<%= @burger.id %>">
+      <h3>Edit Burger</h3>
       <input type="hidden" name="_method" value="put">
       <div class="row">
         <div class="one-half column">

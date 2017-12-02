@@ -29,19 +29,21 @@
 </aside>
 
 <main class="display"> 
-  <div class="container small">
-    <h3>Edit Deal</h3>
-    <form class="offset-by-three" method="post" action="/admin/discounts/<%= @discount.id %>">
+  <div class="container">
+    <form class="offset-by-two eight columns" method="post" action="/admin/discounts/<%= @discount.id %>">
+      <h3>Edit Deal</h3>
       <input type="hidden" name="_method" value="put">
 
       <div class="row">
-        <div class="one-third column">
+        <div class="twelve columns">
           <div class="form-group">
             <label for="restaurant_select">Discount Name</label>
             <input type="text" name="name" id="name" value="<%= @discount.name %>">
           </div>
         </div>
-        <div class="one-third column">
+      </div>
+      <div class="row">
+        <div class="one-half column">
           <div class="form-group">
             <label for="discount_multiplier">Discount Type</label>
             <select id="discount_multiplier" name="type">
@@ -50,7 +52,7 @@
             </select>
           </div>
         </div>
-        <div class="one-third column">
+        <div class="one-half column">
           <div class="form-group">
             <label for="discount_multiplier">Amount</label>
             <input type="number" step="0.01" min=0 name="multiplier" id="discount_multiplier" value="<%= @discount.multiplier %>">

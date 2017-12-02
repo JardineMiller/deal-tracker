@@ -147,6 +147,8 @@ section.show {
   transform: translateY(-50%);
 }
 
+
+
 .form {
   position: relative;
   top: 50%;
@@ -195,9 +197,13 @@ form * {
 
 .display {
   margin-left: 170px;
-  padding: 20px 20px 0 20px;
+  padding: 50px 20px;
   background: #e2e1e0;
   min-height: 100vh;
+}
+
+main.display.overview {
+  padding-top: 20px;
 }
 
 .info {
@@ -349,3 +355,8 @@ input#slide-sidebar {
     display: none !important;
   }
 }
+
+.center {
+  text-align: center;
+}
+

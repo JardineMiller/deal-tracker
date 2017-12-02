@@ -32,30 +32,34 @@
 
 <main class="display">
   <div class="row">
-    <div class="twelve columns">
-      <h5>Deals</h5>
-      <table class="u-full-width">
-        <tr>
-          <th>Deal Name</th>
-          <th>Discount Name</th>
-          <th>Restaurant Name</th>
-          <th>Discount Multiplier</th>
-          <th>Day</th>
-          <th></th>
-        </tr>
-        <% @deals.each do |deal| %>
-        <tr>
-          <td><%= deal.name %></a></td>
-          <td><%= deal.discount.name %></td>
-          <td><%= deal.burger.restaurant.name %></td>
-          <td><%= deal.discount.multiplier %></td>
-          <td><%= deal.day.capitalize %></td>
-          <td><a href="/admin/deals/<%= deal.id %>/edit" class="button button-primary">Edit</a>
+    <div class="container small">
+      <div class="twelve columns">
+        <h5>Deals</h5>
+        <table class="u-full-width">
+          <tr>
+            <th>Deal Name</th>
+            <th>Restaurant Name</th>
+            <th>Discount Name</th>
+            <th>Discount Amount</th>
+            <th>Burgers</th>
+            <th>Day</th>
+            <th></th>
+          </tr>
+          <% @deals.each do |deal| %>
+          <tr>
+            <td><%= deal.name %></a></td>
+            <td><%= deal.burger.restaurant.name %></td>
+            <td><%= deal.discount.name %></td>
+            <td class="center"><%= deal.discount.multiplier %></td>
+            <td class="center"><%= deal.burger_count %></td>
+            <td><%= deal.day.capitalize %></td>
+            <td><a href="/admin/deals/<%= deal.id %>/edit" class="button button-primary">Edit</a>
 
-        </tr>
-        <% end %>
-      </table>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 

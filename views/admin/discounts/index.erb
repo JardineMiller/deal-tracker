@@ -30,7 +30,7 @@
 
 <main class="display">
   <div class="row">
-    <div class="container-small">
+    <div class="container small">
       <div class="twelve columns">
         <h5>Discounts</h5>
         <table class="u-full-width">
@@ -44,7 +44,7 @@
           <tr>
             <td><%= discount.name %></td>
             <td><%= discount.type %></td>
-            <td><%= discount.multiplier %></td>
+            <td class="center"><%= discount.multiplier %></td>
             <td><a href="/admin/discounts/<%= discount.id %>/edit" class="button button-primary">Edit</a>
             </tr>
             <% end %>

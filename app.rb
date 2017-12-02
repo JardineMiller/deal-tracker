@@ -2,10 +2,15 @@ require('sinatra')
 require('sinatra/reloader')
 require('date')
 
-require_relative('controllers/burger_controller.rb')
+require_relative('controllers/admin/discount_controller.rb')
+require_relative('controllers/admin/burger_controller.rb')
+require_relative('controllers/admin/deal_controller.rb')
+require_relative('controllers/admin/restaurant_controller.rb')
+
 require_relative('controllers/deal_controller.rb')
 require_relative('controllers/restaurant_controller.rb')
 require_relative('controllers/admin_controller.rb')
+require_relative('controllers/burger_controller.rb')
 
 require_relative('models/burger.rb')
 require_relative('models/deal.rb')
