@@ -7,9 +7,18 @@ get '/admin/burgers' do   #BURGER - INDEX
   erb (:"/admin/burgers/index")
 end
 
+get '/admin/burgers_by_restaurant' do   #BURGER - INDEX
+  @burgers = Burger.by_restaurant
+  erb (:"/admin/burgers/index")
+end
+
+get '/admin/burgers_by_price' do   #BURGER - INDEX
+  @burgers = Burger.by_price
+  erb (:"/admin/burgers/index")
+end
+
 get '/admin/burgers/new' do #BURGER - NEW
   @restaurants = Restaurant.all
-  @burgers = Burger.all_types
   erb (:"/admin/burgers/new")
 end
 
@@ -21,7 +30,6 @@ end
 
 get '/admin/burgers/:id/edit' do #BURGER - EDIT
   @burger = Burger.find(params[:id])
-  @burgers = Burger.all_types
   @restaurants = Restaurant.all
   erb (:"/admin/burgers/edit")
 end

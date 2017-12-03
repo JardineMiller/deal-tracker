@@ -1,13 +1,12 @@
 require_relative('../db/sqlrunner.rb')
 
 class Burger
-  attr_reader :id, :name, :type, :photo_url, :description, :price, :restaurant_id
+  attr_reader :id, :name, :photo_url, :description, :price, :restaurant_id
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @restaurant_id = options["restaurant_id"].to_i
     @name = options["name"]
-    @type = options["type"] || ""
     @price = options["price"].to_f
     @photo_url = options["photo_url"] if options["photo_url"]
     @description = options["description"] if options["description"]
@@ -19,12 +18,12 @@ class Burger
   def save
     sql = "
     INSERT INTO burgers
-    (restaurant_id, name, type, price, photo_url, description)
+    (restaurant_id, name, price, photo_url, description)
     VALUES
-    ($1, $2, $3, $4, $5, $6)
+    ($1, $2, $3, $4, $5)
     RETURNING id
     "
-    values = [@restaurant_id, @name, @type, @price, @photo_url, @description]
+    values = [@restaurant_id, @name, @price, @photo_url, @description]
     burger = SqlRunner.run(sql, values).first
     @id = burger["id"].to_i
   end
@@ -42,11 +41,11 @@ class Burger
   def update
     sql = "
     UPDATE burgers
-    SET (restaurant_id, name, type, price, photo_url, description) =
-    ($1, $2, $3, $4, $5, $6)
-    WHERE id = $7
+    SET (restaurant_id, name, price, photo_url, description) =
+    ($1, $2, $3, $4, $5)
+    WHERE id = $6
     " 
-    values = [@restaurant_id, @name, @type, @price, @photo_url, @description, @id]
+    values = [@restaurant_id, @name, @price, @photo_url, @description, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -71,19 +70,9 @@ class Burger
 
   def self.all
     sql = "
-    SELECT * FROM burgers ORDER BY id
+    SELECT * FROM burgers ORDER BY name
     "
     result = SqlRunner.run(sql)
-    return result.map { |burger| Burger.new(burger) }
-  end
-
-  def self.all_of_type(type)
-    sql = "
-    SELECT * FROM burgers
-    WHERE type = $1
-    "
-    values = [type]
-    result = SqlRunner.run(sql, values)
     return result.map { |burger| Burger.new(burger) }
   end
 
@@ -91,11 +80,36 @@ class Burger
     return self.all.count
   end
 
-  def self.all_types
+
+  # =============================================================
+  # ========================= FILTER ============================
+  
+  def self.by_restaurant
     sql = "
-    SELECT DISTINCT ON (burgers.type) * FROM burgers
+    SELECT burgers.* FROM burgers
+    INNER JOIN restaurants
+    ON restaurants.id = burgers.restaurant_id
+    ORDER BY restaurants.name
     "
     result = SqlRunner.run(sql)
+    return result.map { |burger| Burger.new(burger) }
+  end
+
+  def self.by_price
+    sql = "
+    SELECT * FROM burgers ORDER BY price
+    "
+    result = SqlRunner.run(sql)
+    return result.map { |burger| Burger.new(burger) }
+  end
+
+  def self.search(string)
+    sql = "
+    SELECT * FROM burgers
+    WHERE name LIKE $1 OR name LIKE lower($1)
+    "
+    values = ["%#{string}%"]
+    result = SqlRunner.run(sql, values)
     return result.map { |burger| Burger.new(burger) }
   end
 

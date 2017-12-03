@@ -72,7 +72,7 @@ class Restaurant
 
   def self.all
     sql = "
-    SELECT * FROM restaurants ORDER BY id
+    SELECT * FROM restaurants ORDER BY name
     "
     result = SqlRunner.run(sql)
     return result.map { |restaurant| Restaurant.new(restaurant) }
@@ -80,6 +80,16 @@ class Restaurant
 
   def self.count
     return self.all.count
+  end
+
+ def self.search(string)
+    sql = "
+    SELECT * FROM restaurants
+    WHERE name LIKE $1 OR name LIKE lower($1)
+    "
+    values = ["%#{string}%"]
+    result = SqlRunner.run(sql, values)
+    return result.map { |restaurant| Restaurant.new(restaurant) }
   end
 
   # =============================================================

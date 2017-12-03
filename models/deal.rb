@@ -113,6 +113,7 @@ class Deal
     ON deals.burger_id = burgers.id
     INNER JOIN restaurants
     ON burgers.restaurant_id = restaurants.id
+    ORDER BY name
     "
     result = SqlRunner.run(sql)
     return result.map { |deal| Deal.new(deal) }
@@ -131,8 +132,45 @@ class Deal
   end
 
   # ===============================================================
+  # ======================== FILTERING ============================
+
+  def self.by_restaurant
+    sql = "
+    SELECT DISTINCT ON (restaurants.name, deals.name) deals.* FROM deals
+    INNER JOIN discounts
+    ON deals.discount_id = discounts.id
+    INNER JOIN burgers
+    ON deals.burger_id = burgers.id
+    INNER JOIN restaurants
+    ON burgers.restaurant_id = restaurants.id
+    ORDER BY restaurants.name
+    "
+    result = SqlRunner.run(sql)
+    return result.map { |deal| Deal.new(deal) }
+  end
+
+    def self.search(string)
+    sql = "
+    SELECT DISTINCT ON (restaurant_id, deals.name) deals.* FROM deals
+    INNER JOIN discounts
+    ON deals.discount_id = discounts.id
+    INNER JOIN burgers
+    ON deals.burger_id = burgers.id
+    INNER JOIN restaurants
+    ON burgers.restaurant_id = restaurants.id
+    WHERE deals.name LIKE $1 OR deals.name LIKE lower($1)
+    ORDER BY name
+    "
+    values = ["%#{string}%"]
+    result = SqlRunner.run(sql, values)
+    return result.map { |deal| Deal.new(deal) }
+  end
+
+  # ===============================================================
   # =========================== INFO ==============================
   
+
+
   def burger
     sql = "
     SELECT burgers.* FROM deals
@@ -193,5 +231,6 @@ class Deal
     return sprintf('%.2f',(self.burger.price * self.discount.multiplier)) if self.discount.type == "percentage"
     return sprintf('%.2f',(self.burger.price - self.discount.multiplier)) if self.discount.type == "deduction"
   end
+
 
 end

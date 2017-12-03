@@ -56,7 +56,6 @@ require_relative('../models/deal.rb')
 @burger1 = Burger.new({
   "name" => "The Mighty Meaty",
   "restaurant_id" => @restaurant.id,
-  "type" => :cheeseburger,
   "price" => 10.99,
   "photo_url" => "mighty_meaty.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -65,7 +64,6 @@ require_relative('../models/deal.rb')
 @burger2 = Burger.new({
   "name" => "The Veggie Supreme",
   "restaurant_id" => @restaurant.id,
-  "type" => :veggie,
   "price" => 8.99,
   "photo_url" => "veggie_supreme.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -74,7 +72,6 @@ require_relative('../models/deal.rb')
 @burger3 = Burger.new({
   "name" => "The Impossible Burger",
   "restaurant_id" => @restaurant.id,
-  "type" => :veggie,
   "price" => 18.99,
   "photo_url" => "impossible_burger.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -85,7 +82,6 @@ require_relative('../models/deal.rb')
 @burger4 = Burger.new({
   "name" => "Pulled Pork Burger",
   "restaurant_id" => @restaurant2.id,
-  "type" => :pork,
   "price" => 12.99,
   "photo_url" => "pulled_pork.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -94,7 +90,6 @@ require_relative('../models/deal.rb')
 @burger5 = Burger.new({
   "name" => "Onion Ring Burger",
   "restaurant_id" => @restaurant2.id,
-  "type" => :custom,
   "price" => 12.99,
   "photo_url" => "onion_ring.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -103,7 +98,6 @@ require_relative('../models/deal.rb')
 @burger6 = Burger.new({
   "name" => "Classic Burger",
   "restaurant_id" => @restaurant2.id,
-  "type" => :hamburger,
   "price" => 8.99,
   "photo_url" => "classic.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -114,7 +108,6 @@ require_relative('../models/deal.rb')
 @burger7 = Burger.new({
   "name" => "The Greasy Griller",
   "restaurant_id" => @restaurant3.id,
-  "type" => :custom,
   "price" => 15.99,
   "photo_url" => "greasy_griller.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -123,7 +116,6 @@ require_relative('../models/deal.rb')
 @burger8 = Burger.new({
   "name" => "Atomic Avacado",
   "restaurant_id" => @restaurant3.id,
-  "type" => :veggie,
   "price" => 10.99,
   "photo_url" => "atomic_avacado.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -132,7 +124,6 @@ require_relative('../models/deal.rb')
 @burger9 = Burger.new({
   "name" => "The Coronary",
   "restaurant_id" => @restaurant3.id,
-  "type" => :custom,
   "price" => 13.99,
   "photo_url" => "the_coronary.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -141,7 +132,6 @@ require_relative('../models/deal.rb')
 @burger10 = Burger.new({
   "name" => "The Dude",
   "restaurant_id" => @restaurant4.id,
-  "type" => :custom,
   "price" => 16.99,
   "photo_url" => "burger_1.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -150,7 +140,6 @@ require_relative('../models/deal.rb')
 @burger11 = Burger.new({
   "name" => "The Demon",
   "restaurant_id" => @restaurant4.id,
-  "type" => :custom,
   "price" => 13.99,
   "photo_url" => "burger_2.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
@@ -159,7 +148,6 @@ require_relative('../models/deal.rb')
 @burger12 = Burger.new({
   "name" => "The Happy Jalepeno",
   "restaurant_id" => @restaurant4.id,
-  "type" => :custom,
   "price" => 10.99,
   "photo_url" => "burger_3.jpg",
   "description" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."

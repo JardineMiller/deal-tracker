@@ -36,10 +36,9 @@
       <h5>Burgers</h5>
       <table class="u-full-width">
         <tr>
-          <th>Burger Name</th>
-          <th>Restaurant Name</th>
-          <th>Type</th>
-          <th>Price</th>
+          <th><a href="/admin/burgers">Burger Name</a></th>
+          <th><a href="/admin/burgers_by_restaurant">Restaurant Name</a></th>
+          <th><a href="/admin/burgers_by_price">Price</a></th>
           <th>Filename</th>
           <th>Description</th>
           <th></th>
@@ -48,7 +47,6 @@
         <tr>
           <td><%= burger.name %></td>
           <td><%= burger.restaurant.name %></a></td>
-          <td><%= burger.type.to_s %></td>
           <td><%= burger.price.to_f %></td>
           <td><%= burger.photo_url %></td>
           <td><%= burger.description %></td>

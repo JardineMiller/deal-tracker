@@ -1,0 +1,71 @@
+<% search_total = @deals.count + @burgers.count + @restaurants.count %>
+
+<section class="results">
+  <div class="container">
+    <p class="large">There were <%= search_total %> results for your search '<%= @search_query %>'</p>
+  </div>
+</section>
+
+<% if @deals.count > 0 %>
+<section class="deals">
+  <div class="container">
+    <h3>Deal results</h3>
+    <% @deals.each do |deal| %>
+    <a href="/deals/<%= deal.id %>">
+      <div class="three columns tile">
+        <div class="tile-image" style="background-image: url('/images/burgers/<%= deal.burger.photo_url %>');"></div>
+        <div class="tile-overlay">
+          <h4><%= deal.name %></h4>
+          <h5><%= deal.restaurant.name %></h5>
+          <p class="bottom-right"><%= deal.discount.name %></p>
+          <p class="muted"><del>£<%= deal.burger.price %></del></p>
+          <p class="final-price">£<%= deal.final_price %></p>
+        </div>
+      </div>
+    </a>
+    <% end %>
+  </div>
+</section>
+<% end %>
+
+<% if @burgers.count > 0 %>
+<section class="deals">
+  <div class="container">
+    <h3>Burger results</h3>
+    <% @burgers.each do |burger| %>
+    <a href="/burgers/<%= burger.id %>">
+      <div class="three columns tile">
+        <div class="tile-image" style="background-image: url('/images/burgers/<%= burger.photo_url %>');"></div>
+        <div class="tile-overlay">
+          <h4><%= burger.name %></h4>
+          <p class="final-price">£<%= burger.price %></p>
+        </div>
+      </div>
+    </a>
+    <% end %>
+  </div>
+</section>
+<% end %>
+
+<% if @restaurants.count > 0 %>
+<section class="deals">
+  <div class="container">
+    <h3>Restaurant results</h3>
+    <% @restaurants.each do |restaurant| %>
+    <a href="/restaurants/<%= restaurant.id %>">
+      <div class="three columns tile">
+        <div class="tile-image" style="background-image: url('/images/logos/<%= restaurant.logo_url %>');"></div>
+        <div class="tile-overlay">
+          <h4><%= restaurant.name %></h4>
+        </div>
+      </div>
+    </a>
+    <% end %>
+  </div>
+</section>
+<% end %>
+
+
+
+
+

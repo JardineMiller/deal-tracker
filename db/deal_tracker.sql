@@ -21,7 +21,6 @@ CREATE TABLE burgers (
   id SERIAL4 PRIMARY KEY,
   restaurant_id INT REFERENCES restaurants(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
-  type VARCHAR(255) NOT NULL,
   price FLOAT(2) NOT NULL,
   photo_url VARCHAR(255),
   description TEXT

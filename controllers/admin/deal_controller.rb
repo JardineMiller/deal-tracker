@@ -1,9 +1,15 @@
 require('sinatra')
 require('sinatra/reloader')
 require('date')
+require('pry-byebug')
 
 get '/admin/deals' do #DEALS - INDEX
   @deals = Deal.distinct_all
+  erb (:"/admin/deals/index")
+end
+
+get '/admin/deals_by_restaurant' do #DEALS - INDEX
+  @deals = Deal.by_restaurant
   erb (:"/admin/deals/index")
 end
 
@@ -11,6 +17,12 @@ get '/admin/deals/new' do #DEALS - NEW
   @discounts = Discount.all
   @burgers = Burger.all
   erb (:"/admin/deals/new")
+end
+
+get '/admin/deals/add_burger' do
+  @deals = Deal.distinct_all
+  @burgers = Burger.all
+  erb (:"/admin/deals/add_burger")
 end
 
 post '/admin/deals' do #DEALS - CREATE

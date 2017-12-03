@@ -23,6 +23,7 @@
       <ul>
         <a href="/admin/deals"><li>list all</li></a>
         <a href="/admin/deals/new"><li>create new</li></a>
+        <a href="/admin/deals/add_burger"><li>add burger</li></a>
       </ul>
     </li>
   </ul>
@@ -30,7 +31,7 @@
 
 <main class="display"> 
   <div class="container">
-    <form class="offset-by-two eight columns" method="post" action="/admin/deals">
+    <form class="offset-by-two eight columns" method="post" action="/admin/deals/<%= @deal.id %>">
       <h3>Edit Deal</h3>
       <input type="hidden" name="_method" value="put">
 

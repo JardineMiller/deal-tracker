@@ -50,6 +50,10 @@ section {
   padding: 30px;
 }
 
+section.results {
+  padding-bottom: 0;
+}
+
 section.show {
   padding: 30px 0;
 }
@@ -360,3 +364,10 @@ input#slide-sidebar {
   text-align: center;
 }
 
+.search {
+  margin: 11px;
+}
+
+.search input {
+  margin: 0;
+}

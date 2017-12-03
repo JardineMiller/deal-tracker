@@ -36,6 +36,14 @@
       <h3>Edit Burger</h3>
       <input type="hidden" name="_method" value="put">
       <div class="row">
+        <div class="twelve columns">
+          <div class="form-group">
+            <label for="burger_name">Burger Name</label>
+            <input type="text" name="name" id="burger_name" value="<%= @burger.name%>">
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="one-half column">
           <div class="form-group">
             <label for="restaurant_select">Restaurant Name</label>
@@ -48,33 +56,15 @@
             </select>
           </div>
         </div>
-        <div class="one-half column">
-          <div class="form-group">
-            <label for="burger_name">Burger Name</label>
-            <input type="text" name="name" id="burger_name" value="<%= @burger.name%>">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="four columns">
-          <div class="form-group">
-            <label for="burger_type_select">Type</label>
-            <select id="burger_type_select" name="type">
-              <% @burgers.each do |burger| %>
-              <option value ="<%= burger.type %>" <%= "selected" if @burger.type == burger.type %> >
-                <%= burger.type.capitalize %>
-              </option>
-              <% end %>
-            </select>
-          </div>
-        </div>
-        <div class="four columns">
+        <div class="six columns">
           <div class="form-group">
             <label for="burger_price">Price</label>
             <input min=0 step="0.01" type="number" name="price" id="burger_price" value="<%= @burger.price%>">
           </div>
         </div>
-        <div class="four columns">
+      </div>
+      <div class="row">
+        <div class="twelve columns">
           <div class="form-group">
             <label for="file_name">File name</label>
             <input type="text" name="photo_url" id="file_name" value="<%= @burger.photo_url%>">
