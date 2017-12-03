@@ -141,7 +141,7 @@ class Burger
   end
 
   def final_price(deal)
-    return sprintf('%.2f',(price * deal.discount.multiplier)) if deal.discount.type == "percentage"
+    return sprintf('%.2f',(price * (1 - (deal.discount.multiplier / 100)))) if deal.discount.type == "percentage"
     return sprintf('%.2f',(price - deal.discount.multiplier)) if deal.discount.type == "deduction"
   end
 

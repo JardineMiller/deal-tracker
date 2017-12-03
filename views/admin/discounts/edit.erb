@@ -33,15 +33,6 @@
     <form class="offset-by-two eight columns" method="post" action="/admin/discounts/<%= @discount.id %>">
       <h3>Edit Deal</h3>
       <input type="hidden" name="_method" value="put">
-
-      <div class="row">
-        <div class="twelve columns">
-          <div class="form-group">
-            <label for="restaurant_select">Discount Name</label>
-            <input type="text" name="name" id="name" value="<%= @discount.name %>">
-          </div>
-        </div>
-      </div>
       <div class="row">
         <div class="one-half column">
           <div class="form-group">

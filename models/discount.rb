@@ -1,11 +1,10 @@
 require_relative('../db/sqlrunner.rb')
 
 class Discount
-  attr_reader :id, :name, :type, :multiplier
+  attr_reader :id, :type, :multiplier
   
   def initialize(options)
     @id = options["id"].to_i if options["id"]
-    @name = options["name"]
     @type = options["type"]
     @multiplier = options["multiplier"].to_f
   end
@@ -21,7 +20,7 @@ class Discount
     ($1, $2, $3)
     RETURNING id
     "
-    values = [@name, @multiplier, @type]
+    values = [self.name, @multiplier, @type]
     discount = SqlRunner.run(sql, values).first
     @id = discount["id"].to_i
   end
@@ -43,7 +42,7 @@ class Discount
     ($1, $2, $3)
     WHERE id = $4
     "
-    values = [@name, @multiplier, @type, @id]
+    values = [self.name, @multiplier, @type, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -58,6 +57,7 @@ class Discount
 
   # =============================================================
   # ========================== ALLS =============================
+  
   
   def self.delete_all
     sql = "
@@ -84,6 +84,18 @@ class Discount
     "
     result = SqlRunner.run(sql)
     return result.map { |discount| Discount.new(discount) }
+  end
+
+  # =============================================================
+  # ========================== INFO =============================
+
+  def name 
+    case type
+    when "percentage"
+      return "#{@multiplier.round(0)}\% Off"
+    when "deduction"
+      return "£#{@multiplier.round(0)} Off"
+    end
   end
 
 end

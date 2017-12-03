@@ -170,79 +170,66 @@ require_relative('../models/deal.rb')
 @burger12.save
 
 @discount = Discount.new({
-  "name" => "5% Off",
   "type" => "percentage",
-  "multiplier" => 0.95
+  "multiplier" => 5
 })
 
 @discount2 = Discount.new({
-  "name" => "10% Off",
   "type" => "percentage",
-  "multiplier" => 0.90
+  "multiplier" => 10
 })
 
 @discount3 = Discount.new({
-  "name" => "15% Off",
   "type" => "percentage",
-  "multiplier" => 0.85
+  "multiplier" => 15
 })
 
 @discount4 = Discount.new({
-  "name" => "20% Off",
   "type" => "percentage",
-  "multiplier" => 0.80
+  "multiplier" => 20
 })
 
 @discount5 = Discount.new({
-  "name" => "25% Off",
   "type" => "percentage",
-  "multiplier" => 0.75
+  "multiplier" => 25
 })
 
 @discount6 = Discount.new({
-  "name" => "30% Off",
   "type" => "percentage",
-  "multiplier" => 0.70
+  "multiplier" => 30
 })
 
 @discount7 = Discount.new({
-  "name" => "35% Off",
   "type" => "percentage",
-  "multiplier" => 0.65
+  "multiplier" => 35
 })
 
 @discount8 = Discount.new({
-  "name" => "40% Off",
   "type" => "percentage",
-  "multiplier" => 0.60
+  "multiplier" => 40
 })
 
 @discount9 = Discount.new({
-  "name" => "45% Off",
   "type" => "percentage",
-  "multiplier" => 0.55
+  "multiplier" => 45
 })
 
 @discount10 = Discount.new({
-  "name" => "50% Off",
   "type" => "percentage",
-  "multiplier" => 0.50
+  "multiplier" => 50
 })
 
 @discount11 = Discount.new({
-  "name" => "£5 Off",
   "type" => "deduction",
   "multiplier" => 5
 })
 
 @discount12 = Discount.new({
-  "name" => "£10 Off",
   "type" => "deduction",
   "multiplier" => 10
 })
 
 @discount13 = Discount.new({
-  "name" => "£15 Off",
   "type" => "deduction",
   "multiplier" => 15
 })
