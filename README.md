@@ -41,7 +41,7 @@ Jarrod has an insatiable hunger for burgers. However, he only has a limited budg
 
 In the app's working directory, complete the following steps:
 
-### 1. Create the database
+### 1. Create the database (using PostgreSQL)
 
 ```
 createdb deal_tracker
