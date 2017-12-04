@@ -8,7 +8,7 @@ get '/admin/deals' do #DEALS - INDEX
   erb (:"/admin/deals/index")
 end
 
-get '/admin/deals_by_restaurant' do #DEALS - INDEX
+get '/admin/deals_by_restaurant' do #DEALS - INDEX BY RESTAURANT
   @deals = Deal.by_restaurant
   erb (:"/admin/deals/index")
 end
@@ -19,10 +19,18 @@ get '/admin/deals/new' do #DEALS - NEW
   erb (:"/admin/deals/new")
 end
 
-get '/admin/deals/add_burger' do
-  @deals = Deal.distinct_all
-  @burgers = Burger.all
-  erb (:"/admin/deals/add_burger")
+post '/admin/deals/:id/add-burger' do # DEALS - ADD BURGER
+  id = params[:id]
+  @deal = Deal.find(id)
+  @burger = Burger.find(params[:burger_id])
+  new_deal = Deal.new({
+    "name" => @deal.name,
+    "burger_id" => @burger.id,
+    "discount_id" => @deal.discount.id,
+    "day" => @deal.day
+    })
+  new_deal.save
+  redirect to "/admin/deals/#{id}/edit"
 end
 
 post '/admin/deals' do #DEALS - CREATE

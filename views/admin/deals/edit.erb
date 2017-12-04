@@ -23,7 +23,6 @@
       <ul>
         <a href="/admin/deals"><li>list all</li></a>
         <a href="/admin/deals/new"><li>create new</li></a>
-        <a href="/admin/deals/add_burger"><li>add burger</li></a>
       </ul>
     </li>
   </ul>
@@ -72,13 +71,16 @@
           <div class="form-group">
             <label for="day">Day</label>
             <select id="day" name="day">
-              <% @days.each do |day| %>
-              <option value="<%= day %>" <%= "selected" if @deal.day.to_s == day %> ><%= day.capitalize %></option>
-              <% end %>
+              <option value="mon" <%= "selected" if @deal.day.to_s == "mon" %> >Monday</option>
+              <option value="tue" <%= "selected" if @deal.day.to_s == "tue" %> >Tuesday</option>
+              <option value="wed" <%= "selected" if @deal.day.to_s == "wed" %> >Wednesday</option>
+              <option value="thu" <%= "selected" if @deal.day.to_s == "thu" %> >Thursday</option>
+              <option value="fri" <%= "selected" if @deal.day.to_s == "fri" %> >Friday</option>
+              <option value="sat" <%= "selected" if @deal.day.to_s == "sat" %> >Saturday</option>
+              <option value="sun" <%= "selected" if @deal.day.to_s == "sun" %> >Sunday</option>
             </select>
           </div>
         </div>
-
 
         <div class="row">
           <div class="three columns offset-by-two">
@@ -101,29 +103,52 @@
           </div>
         </div>
 
-        
-        <div class="twelve columns"> 
-          <h3>Burgers in deal</h3>
-          <table>
-            <tr>
-              <th>Burger Name</th>
-              <th>Burger Price</th>
-              <th>Restaurant Name</th>
-              <th></th>
-            </tr>
-            <% @deal.burgers.each do |burger| %>
-            <tr>
-              <td><%= burger.name %></td>
-              <td><%= burger.price %></td>
-              <td><%= burger.restaurant.name %></td>
-              <td><form method="post" class="no-marg" action="/admin/deals/<%= @deal.id %>/delete-burger/<%= burger.id %>">
-              <input type="hidden" name="_method" value="delete">
-              <button class="button button-danger">Delete</button>
-            </form></td>
-            </tr>
-            <% end %>
-          </table>
+        <div class="row">
+          <div class="twelve columns"> 
+            <h3>Burgers in deal</h3>
+            <table>
+              <tr>
+                <th>Burger Name</th>
+                <th>Burger Price</th>
+                <th>Restaurant Name</th>
+                <th></th>
+              </tr>
+              <% @deal.burgers.each do |burger| %>
+              <tr>
+                <td><%= burger.name %></td>
+                <td><%= burger.price %></td>
+                <td><%= burger.restaurant.name %></td>
+                <td><form method="post" class="no-marg" action="/admin/deals/<%= @deal.id %>/delete-burger/<%= burger.id %>">
+                  <input type="hidden" name="_method" value="delete">
+                  <button class="button button-danger">Delete</button>
+                </form></td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
         </div>
+
+        <div class="row">
+          <form method="post" action="/admin/deals/<%= @deal.id %>/add-burger">
+            <h3>Add burger to deal</h3>
+
+            <div class="row">
+              <div class="form-group nine columns">
+                <label for="burger_select">Burger</label>
+                <select id="burger_select" name="burger_id">
+                  <% @burgers.each do |burger| %>
+                  <option value ="<%= burger.id %>" >
+                    <%= burger.restaurant.name %> - <%= burger.name %>
+                  </option>
+                  <% end %>
+                </select>
+              </div>
+              <div class="form-group three columns">
+                <input class="button button-primary submit-burger" type="submit" name="submit" value="Add Burger">
+              </div>
+            </div>
+          </form>
+        </div>
+
       </div>
-    </div>
-  </main>
+    </main>
