@@ -1,15 +1,16 @@
 <% search_total = @deals.count + @burgers.count + @restaurants.count %>
 
+
 <section class="results">
   <div class="container">
-    <p class="large">There were <%= search_total %> results for your search '<%= @search_query %>'</p>
+    <p class="large">There <%= search_total == 1? "was" : "were" %> <%= search_total %> <%= search_total == 1? "result" : "results" %> for your search '<%= @search_query %>'</p>
   </div>
 </section>
 
 <% if @deals.count > 0 %>
 <section class="deals">
   <div class="container">
-    <h3>Deal results</h3>
+    <h3>Deals</h3>
     <% @deals.each do |deal| %>
     <a href="/deals/<%= deal.id %>">
       <div class="three columns tile">
@@ -31,7 +32,7 @@
 <% if @burgers.count > 0 %>
 <section class="deals">
   <div class="container">
-    <h3>Burger results</h3>
+    <h3>Burgers</h3>
     <% @burgers.each do |burger| %>
     <a href="/burgers/<%= burger.id %>">
       <div class="three columns tile">
@@ -50,7 +51,7 @@
 <% if @restaurants.count > 0 %>
 <section class="deals">
   <div class="container">
-    <h3>Restaurant results</h3>
+    <h3>Restaurants</h3>
     <% @restaurants.each do |restaurant| %>
     <a href="/restaurants/<%= restaurant.id %>">
       <div class="three columns tile">

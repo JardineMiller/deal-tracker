@@ -68,7 +68,7 @@ class Deal
     values = [@name, @day, burger_id]
     SqlRunner.run(sql, values)
   end
-    
+
 
   def delete_deal # Deletes all "instances" of a deal (multiple burgers per deal)
     sql = "
@@ -119,6 +119,27 @@ class Deal
     return result.map { |deal| Deal.new(deal) }
   end
 
+  def self.filter_by_distance(distance)
+    if distance == "all"
+      self.distinct_all
+    else
+      sql = "
+      SELECT DISTINCT ON (restaurant_id, deals.name) deals.* FROM deals
+      INNER JOIN discounts
+      ON deals.discount_id = discounts.id
+      INNER JOIN burgers
+      ON deals.burger_id = burgers.id
+      INNER JOIN restaurants
+      ON burgers.restaurant_id = restaurants.id
+      WHERE restaurants.distance < $1
+      ORDER BY name
+      "
+      values = [distance]
+      result = SqlRunner.run(sql, values)
+      return result.map { |deal| Deal.new(deal) }
+    end
+  end
+
   def self.distinct_count
     return self.distinct_all.count
   end
@@ -149,7 +170,7 @@ class Deal
     return result.map { |deal| Deal.new(deal) }
   end
 
-    def self.search(string)
+  def self.search(string)
     sql = "
     SELECT DISTINCT ON (restaurant_id, deals.name) deals.* FROM deals
     INNER JOIN discounts

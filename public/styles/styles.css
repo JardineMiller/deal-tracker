@@ -371,3 +371,21 @@ input#slide-sidebar {
 .search input {
   margin: 0;
 }
+
+.submit-burger {
+  padding: 0 10% !important;
+  margin: 30px 0 0;
+}
+
+.filter > * {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.filter {
+  margin: 11px 11px 11px 115px;
+}
+
+.button-white {
+  background: #efefef !important;
+}

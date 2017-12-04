@@ -10,6 +10,17 @@
 </head>
   <nav>
     <a class="nav-logo u-pull-left" href="/">Deal Tracker</a>
+    <form method="get" action="/filter" class="filter four columns u-pull-left">
+      <select class="three columns" name="distance" id="distance">
+        <option disabled selected>-- Distance --</option>
+        <option value="all">All</option>
+        <option value="5" <%= "selected" if @distance == "5" %> >5km</option>
+        <option value="10" <%= "selected" if @distance == "10" %> >10km</option>
+        <option value="15" <%= "selected" if @distance == "15" %> >15km</option>
+        <option value="20" <%= "selected" if @distance == "20" %> >20km</option>
+      </select>
+      <input class="button button-white three columns" type="submit" value="Filter">
+    </form>
     <a class="admin-link u-pull-right" href="/admin">Admin</a>
     <form class="search u-pull-right" method="get" action="/results"><input type="text" name="search" placeholder="Search..."></form>
   </nav>

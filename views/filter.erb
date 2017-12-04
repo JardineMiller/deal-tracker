@@ -11,6 +11,12 @@
   <li><a class="button <%= "button-primary blue" if @today.strftime(('%a')).downcase == "sun" %>" href="#sun">Sunday</a></li>
 </ul>
 
+<section class="results">
+  <div class="container">
+    <p class="large">Showing deals within <%= @distance %>km of you</p>
+  </div>
+</section>
+
 
 <% 7.times do %>
 <% empty = true %>

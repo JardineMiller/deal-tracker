@@ -32,3 +32,11 @@ get '/results' do
   # binding.pry
   erb :results
 end
+
+get '/filter' do
+  @distance = params[:distance]
+  @deals = Deal.filter_by_distance(@distance)
+  @today = Date.today
+
+  erb :filter
+end
