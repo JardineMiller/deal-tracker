@@ -3,7 +3,11 @@
 
 <section class="results">
   <div class="container">
-    <p class="large">There <%= search_total == 1? "was" : "were" %> <%= search_total %> <%= search_total == 1? "result" : "results" %> for your search '<%= @search_query %>'</p>
+    <% if search_total == 1 %>
+    <p class="large">There was 1 result for your search '<%= @search_query %>'</p>
+    <% else %>
+    <p class="large">There were <%= search_total %> results for your search '<%= @search_query %>'</p>
+    <% end %>
   </div>
 </section>
 
