@@ -22,7 +22,7 @@ require_relative('../models/deal.rb')
   "email" => "email@monsterburger.co.uk",
   "address" => "345 Fake Street, Edinburgh, EH1 1AA",
   "logo_url" => "monster_burger.jpg",
-  "distance" => 5,
+  "distance" => 4,
   "bio" => "Burger ipsum dolor amet kobe culpa short loin ipsum officia adipisicing bacon dolor. Ea duis steak tail laboris elit labore rump eu non shoulder beef ribs eiusmod. Cow reprehenderit ullamco do cupidatat."
 })
 
