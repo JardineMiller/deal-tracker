@@ -3,11 +3,11 @@
  A Ruby/Sinatra based web application for creating, managing and displaying discounts & deals for local Burger restaurants.
  
 ## This Project Utilises:
-Ruby
-Object Oriented Programming
-Web Programming (Sintatra MVC Framework)
-RESTful Routes
-PostgreSQL
+- Ruby
+- Object Oriented Programming
+- Web Programming (Sintatra MVC Framework)
+- RESTful Routes
+- PostgreSQL
 
 
 ## The Brief
