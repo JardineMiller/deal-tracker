@@ -68,4 +68,12 @@ http://localhost:4567
 ### 6. Enjoy!
 
 
+### Author
+Jardine Miller
+
+### Special Mentions
+CodeClan, Edinburgh
+
+
+
 
