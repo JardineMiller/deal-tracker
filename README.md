@@ -16,7 +16,7 @@ Jarrod has an insatiable hunger for burgers. However, he only has a limited budg
 
 ## MVP:
 
-- Add a burger eatery # Completed
+- Add a burger eatery
 - Add burgers available at an eatery and view them as a list
 - Add a list of deals for an eatery where a deal has
 - Label string e.g. "Two For One Tuesdays"
